@@ -32,9 +32,6 @@ public class QuizzActivity extends AppCompatActivity {
         polishWordViewModel = new ViewModelProvider(this).get(PolishWordViewModel.class);
         englishWordViewModel = new ViewModelProvider(this).get(EnglishWordViewModel.class);
 
-        polishWordViewModel.insert(new PolishWord("testQ", "testa"));
-
-
 
         LiveData<List<PolishWord>> polishWords = polishWordViewModel.findAll();
         polishWords.observe(this, new Observer<List<PolishWord>>() {
