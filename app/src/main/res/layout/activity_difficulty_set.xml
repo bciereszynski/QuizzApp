@@ -16,7 +16,6 @@
             android:layout_width="200dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
-            android:
             android:backgroundTint="#4CAF50"
             android:text="@string/difficultyEasy" />
 
