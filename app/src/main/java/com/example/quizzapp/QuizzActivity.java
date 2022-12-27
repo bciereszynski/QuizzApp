@@ -33,16 +33,12 @@ public class QuizzActivity extends AppCompatActivity {
         englishWordViewModel = new ViewModelProvider(this).get(EnglishWordViewModel.class);
 
 
-        LiveData<List<PolishWord>> polishWords = polishWordViewModel.findAll();
-        polishWords.observe(this, new Observer<List<PolishWord>>() {
-            @Override
-            public void onChanged(List<PolishWord> polishWords) {
-                if(polishWords.isEmpty()){
-                    qText.setText("pusto");
-                }
-                else {
-                    qText.setText(polishWords.get(0).getContent());
-                }
+        polishWordViewModel.findAll().observe(this, polishWords -> {
+            if(polishWords.isEmpty()){
+                qText.setText("pusto");
+            }
+            else {
+                qText.setText(polishWords.get(0).getContent());
             }
         });
 
