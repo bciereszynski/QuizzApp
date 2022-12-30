@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView helloText = findViewById(R.id.hello);
+        TextView helloText = findViewById(R.id.buttonTests);
         helloText.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, QuizzActivity.class);
             startActivity(intent);
