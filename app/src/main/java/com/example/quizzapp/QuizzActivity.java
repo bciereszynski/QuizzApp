@@ -54,6 +54,7 @@ public class QuizzActivity extends AppCompatActivity {
         polishWordViewModel = new ViewModelProvider(this).get(PolishWordViewModel.class);
         englishWordViewModel = new ViewModelProvider(this).get(EnglishWordViewModel.class);
 
+        quizz = new Quizz();
 
         englishWordViewModel.findAll().observe(this, englishWords -> {
             List<Word> ewords = new LinkedList<>();
@@ -67,7 +68,7 @@ public class QuizzActivity extends AppCompatActivity {
                     pwords.add(w);
                 }
                 polish = pwords;
-                quizz = new Quizz(polish, english);
+
                 quizz.generateNewQuestion();
                 qText.setText(quizz.getCurrentQuestuion().getGoodAnswer().getContent());
                 answer1.setText(quizz.getCurrentQuestuion().getPossibleAnswers().get(1).getContent());

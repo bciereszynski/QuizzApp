@@ -11,10 +11,22 @@ public class Quizz {
     private RandomizingIterator<Word> testedWordsIterator;
     private Difficulty difficulty;
 
+
     public Quizz(List<Word> _testedWords, List<Word> _answerWords){
         this.answerWords = _answerWords;
         this.testedWordsIterator= new WordsList(_testedWords).getRandomizingIterator();
         difficulty = new Medium();
+    }
+
+    public Quizz(){
+        difficulty = new Medium();
+    }
+
+    public void setAnswerWords(List<Word> answerWords) {
+        this.answerWords = answerWords;
+    }
+    public void setTestedWords(List<Word> testedWords){
+        this.testedWordsIterator= new WordsList(testedWords).getRandomizingIterator();
     }
 
     public void generateNewQuestion(){
