@@ -3,6 +3,8 @@ package com.example.quizzapp.models;
 import com.example.quizzapp.database.EnglishWord;
 import com.example.quizzapp.database.Word;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Quizz {
@@ -10,6 +12,8 @@ public class Quizz {
     private List<Word> answerWords;
     private RandomizingIterator<Word> testedWordsIterator;
     private Difficulty difficulty;
+
+    private static List<Difficulty> difficulties = Arrays.asList(new Medium(), new Hard());
 
 
     public Quizz(List<Word> _testedWords, List<Word> _answerWords){

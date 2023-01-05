@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface Difficulty {
     public List<String> generateAnswers(List<Word> words, Word correctAnswer);
+    public Difficulty copy();
 }
