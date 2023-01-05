@@ -7,6 +7,8 @@
     <string name="wordForQuestion">English</string>
     <string name="title_activity_crud">CrudActivity</string>
 
+    <string name="correct_answer">Poprawna odpowiedz</string>
+
     <string name="difficultyEasy">Łatwy</string>
     <string name="difficultyMedium">Średni</string>
     <string name="difficultyHard">Trudny</string>
