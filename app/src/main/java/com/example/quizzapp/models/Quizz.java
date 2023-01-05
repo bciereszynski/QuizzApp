@@ -32,7 +32,7 @@ public class Quizz {
     public void generateNewQuestion(){
         if(testedWordsIterator.hasNext()){
             Word answer = testedWordsIterator.next();
-            List<Word> possibleAnswers = difficulty.generateAnswers(answerWords, answer);
+            List<String> possibleAnswers = difficulty.generateAnswers(answerWords, answer);
             this.currentQuestuion = new Question(answer, possibleAnswers);
         }
         else{

@@ -27,11 +27,11 @@ import java.util.List;
 public class QuizzActivity extends AppCompatActivity {
 
     private Quizz quizz;
-    private List<Word> polish;
-    private List<Word> english;
+    private List<Word> polish = new LinkedList<Word>();;
+    private List<Word> english = new LinkedList<Word>();;
     private void checkAnswerCorrectness(String userAnswer){
         int resultMessageId = 0;
-        if(quizz.getCurrentQuestuion().TryAnswer(0)){
+        if(quizz.getCurrentQuestuion().TryAnswer(userAnswer)){
             resultMessageId = R.string.correct_answer;
             Toast.makeText(this,resultMessageId,Toast.LENGTH_SHORT).show();
         }
@@ -54,29 +54,28 @@ public class QuizzActivity extends AppCompatActivity {
         polishWordViewModel = new ViewModelProvider(this).get(PolishWordViewModel.class);
         englishWordViewModel = new ViewModelProvider(this).get(EnglishWordViewModel.class);
 
-        quizz = new Quizz();
+        quizz = new Quizz(polish,english);
 
         englishWordViewModel.findAll().observe(this, englishWords -> {
-            List<Word> ewords = new LinkedList<>();
             for (Word w : englishWords) {
-                ewords.add(w);
+                english.add(w);
             }
-            english = ewords;
+            quizz.setAnswerWords(english);
             polishWordViewModel.findAll().observe(this, polishWords -> {
-                List<Word> pwords = new LinkedList<>();
                 for (Word w : polishWords) {
-                    pwords.add(w);
+                    polish.add(w);
                 }
-                polish = pwords;
+                quizz.setTestedWords(polish);
 
                 quizz.generateNewQuestion();
                 qText.setText(quizz.getCurrentQuestuion().getGoodAnswer().getContent());
-                answer1.setText(quizz.getCurrentQuestuion().getPossibleAnswers().get(1).getContent());
-
+                answer1.setText(quizz.getCurrentQuestuion().getPossibleAnswers().get(0));
+                answer2.setText(quizz.getCurrentQuestuion().getPossibleAnswers().get(1));
+                answer3.setText(quizz.getCurrentQuestuion().getPossibleAnswers().get(2));
+                answer4.setText(quizz.getCurrentQuestuion().getPossibleAnswers().get(3));
             });
+
         });
-
-
 
 
         answer1.setOnClickListener(new View.OnClickListener(){
@@ -89,6 +88,18 @@ public class QuizzActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 checkAnswerCorrectness(answer2.getText().toString());
+            }
+        });
+        answer3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                checkAnswerCorrectness(answer3.getText().toString());
+            }
+        });
+        answer4.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                checkAnswerCorrectness(answer4.getText().toString());
             }
         });
 

@@ -6,14 +6,14 @@ import java.util.List;
 
 public class Question {
     private Word goodAnswer;
-    private List<Word> possibleAnswers;
+    private List<String> possibleAnswers;
 
-    public Question(Word _goodAnswer, List<Word> _possibleAnswers){
+    public Question(Word _goodAnswer, List<String> _possibleAnswers){
         this.goodAnswer = _goodAnswer;
         this.possibleAnswers = _possibleAnswers;
     }
-    public Boolean TryAnswer(int id){
-        if(goodAnswer.getTranslation() == possibleAnswers.get(id).getContent()){
+    public Boolean TryAnswer(String answer){
+        if(goodAnswer.getTranslation() == answer){
             return true;
         }
         return false;
@@ -23,7 +23,7 @@ public class Question {
         return goodAnswer;
     }
 
-    public List<Word> getPossibleAnswers() {
+    public List<String> getPossibleAnswers() {
         return possibleAnswers;
     }
 }

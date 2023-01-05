@@ -13,8 +13,8 @@ import java.util.Random;
 import java.util.Set;
 
 public class Medium implements Difficulty{
-    public List<Word> generateAnswers(List<Word> words, Word correctAnswer){
-        List<Word> answers = new LinkedList<>();
+    public List<String> generateAnswers(List<Word> words, Word correctAnswer){
+        List<String> answers = new LinkedList<>();
         Random r = new Random();
         Set<Integer> indexSet = new LinkedHashSet<>();
         int position;
@@ -25,10 +25,10 @@ public class Medium implements Difficulty{
             indexSet.add(position);
         }
         for (int i:indexSet) {
-            answers.add(words.get(i));
+            answers.add(words.get(i).getContent());
         }
         position=r.nextInt(4);
-        answers.add(position, correctAnswer);
+        answers.add(position, correctAnswer.getTranslation());
         return answers;
     }
     public Medium(){
