@@ -13,9 +13,16 @@
         android:theme="@style/Theme.QuizzApp"
         tools:targetApi="31">
         <activity
-            android:name=".AddWordActivity"
-            android:parentActivityName=".CrudActivity"
+            android:name=".EditWordActivity"
             android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AddWordActivity"
+            android:exported="false"
+            android:parentActivityName=".CrudActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -29,17 +36,16 @@
         </activity>
         <activity
             android:name=".CrudActivity"
-            android:parentActivityName=".MainActivity"
-            android:exported="false">
-
+            android:exported="false"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".QuizzActivity"
-            android:parentActivityName=".MainActivity"
-            android:exported="false">
+            android:exported="false"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

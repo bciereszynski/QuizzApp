@@ -1,0 +1,27 @@
+
+>
+java:S16045"(Make this anonymous inner class a lambda(Ò„‡¬
+>
+java:S1604v"(Make this anonymous inner class a lambda(Ï¤â“
+J
+java:S1604|"(Make this anonymous inner class a lambda(ÚÆŞíúÿÿÿÿ8€ŸÎÇÚ0
+F
+java:S1604¹"(Make this anonymous inner class a lambda(Ï¤â“8¿ñÑÇÚ0
+K
+java:S1604¿"(Make this anonymous inner class a lambda(ÚÆŞíúÿÿÿÿ8¿ñÑÇÚ0
+_
+java:S1874%"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(¹Î¾
+=
+java:S1185%"(Remove this method to simply inherit it.(¹Î¾
+e	java:S116j"PRename this field "Text1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úãš»
+e	java:S116j"PRename this field "Text2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úãš»
+9
+java:S1659j"#Declare "Text2" on a separate line.(úãš»
+C
+java:S1659k"(Declare "editButton" on a separate line.(›·‘Ìùÿÿÿÿ
+f	java:S116­"PRename this field "Text1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úãš»
+f	java:S116­"PRename this field "Text2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úãš»
+:
+java:S1659­"#Declare "Text2" on a separate line.(úãš»
+K
+java:S1659®"(Declare "editButton" on a separate line.(›·‘Ìùÿÿÿÿ8ºÓÇÚ0
