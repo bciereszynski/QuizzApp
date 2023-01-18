@@ -5,6 +5,7 @@ import androidx.core.widget.TextViewCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,10 +15,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView helloText = findViewById(R.id.buttonTests);
-        helloText.setOnClickListener(v -> {
+        Button buttonTests = findViewById(R.id.buttonTests);
+
+        buttonTests.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, QuizzActivity.class);
             startActivity(intent);
         });
+        Button buttonCurd = findViewById(R.id.buttonCrud);
+        buttonCurd.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, CrudActivity.class);
+            startActivity(intent);
+        });
+
+
+
     }
 }

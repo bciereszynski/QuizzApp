@@ -11,4 +11,9 @@
     <string name="difficultyMedium">Średni</string>
     <string name="difficultyHard">Trudny</string>
 
+    <string-array name="translationChoice">
+        <item>Polski -> Angielski</item>
+        <item>English -> Polish</item>
+    </string-array>
+
 </resources>
