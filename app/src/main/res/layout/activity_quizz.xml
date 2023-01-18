@@ -21,29 +21,10 @@
         android:textSize="50dp"
         android:layout_gravity="center"
         android:text="@string/filler" />
-        <Button
-        android:id="@+id/button1"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/answersRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/filler" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/filler" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/filler" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/filler" />
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/button_next"

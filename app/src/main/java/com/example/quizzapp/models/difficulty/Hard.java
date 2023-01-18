@@ -16,7 +16,7 @@ public class Hard implements Difficulty{
         Random r = new Random();
         Set<Integer> indexSet = new LinkedHashSet<>();
         int position;
-        while(indexSet.size() < 5) {
+        while(indexSet.size() < 4) {
             position = r.nextInt(words.size());
             if(words.get(position).getContent() == correctAnswer.getTranslation())
                 continue;

@@ -1,7 +1,0 @@
-
-G
-java:S1659"1Declare "editTranslationText" on a separate line.(ä‹Íø
-x
-java:S1450"bRemove the "editTranslationText" field and declare it as a local variable in the relevant methods.(ä‹Íø
-q
-java:S1450"[Remove the "editWordText" field and declare it as a local variable in the relevant methods.(ä‹Íø

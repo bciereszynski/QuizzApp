@@ -50,10 +50,10 @@ public abstract class Quizz {
 
     //private static List<Difficulty> difficulties = Arrays.asList(new Medium(), new Hard());
 
-    public Quizz(Observer owner){
+    public Quizz(Observer owner, Difficulty startDifficulty){
         this.owner = owner;
         attach((Observer) owner);
-        difficulty = new Medium();
+        difficulty = startDifficulty;
         setWordsLists();
     }
 
@@ -62,7 +62,6 @@ public abstract class Quizz {
             Word answer = testedWordsIterator.next();
             List<String> possibleAnswers = difficulty.generateAnswers(answerWords, answer);
             this.currentQuestion = new Question(answer, possibleAnswers);
-            callObservers();
         }
         else{
             //TODO :END TEST

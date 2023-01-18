@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelStoreOwner;
 import com.example.quizzapp.database.EnglishWordViewModel;
 import com.example.quizzapp.database.PolishWordViewModel;
 import com.example.quizzapp.database.Word;
+import com.example.quizzapp.models.difficulty.Difficulty;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -35,8 +36,8 @@ public class EN_PL_Quizz extends Quizz {
 
     }
 
-    public EN_PL_Quizz(Observer owner){
-        super(owner);
+    public EN_PL_Quizz(Observer owner, Difficulty startDifficulty){
+        super(owner, startDifficulty);
     }
 
 

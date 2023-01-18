@@ -1,22 +1,37 @@
 package com.example.quizzapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.quizzapp.database.PolishWord;
+import com.example.quizzapp.models.difficulty.Medium;
+import com.example.quizzapp.models.quizz.EN_PL_Quizz;
 import com.example.quizzapp.models.quizz.Observer;
 import com.example.quizzapp.models.quizz.PL_EN_Quizz;
 import com.example.quizzapp.models.quizz.Quizz;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.List;
 
 public class QuizzActivity extends AppCompatActivity implements Observer {
 
     private Quizz quizz;
 
-
+    final AnswerAdapter adapter = new AnswerAdapter();
     private TextView qText;
     private Button answer1;
     private Button answer2;
@@ -33,10 +48,7 @@ public class QuizzActivity extends AppCompatActivity implements Observer {
     private void setNewQuestion(){
         quizz.generateNewQuestion();
         qText.setText(quizz.getCurrentQuestion().getGoodAnswer().getContent());
-        answer1.setText(quizz.getCurrentQuestion().getPossibleAnswers().get(0));
-        answer2.setText(quizz.getCurrentQuestion().getPossibleAnswers().get(1));
-        answer3.setText(quizz.getCurrentQuestion().getPossibleAnswers().get(2));
-        answer4.setText(quizz.getCurrentQuestion().getPossibleAnswers().get(3));
+        adapter.setPossibleAnswers(quizz.getCurrentQuestion().getPossibleAnswers());
     }
 
     @Override
@@ -52,14 +64,13 @@ public class QuizzActivity extends AppCompatActivity implements Observer {
 
         //binding
         qText = findViewById(R.id.question);
-        answer1 = findViewById(R.id.button1);
-        answer2 = findViewById(R.id.button2);
-        answer3 = findViewById(R.id.button3);
-        answer4 = findViewById(R.id.button4);
         next = findViewById(R.id.button_next);
 
+        RecyclerView recyclerView = findViewById(R.id.answersRecyclerView);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        quizz = new PL_EN_Quizz(this);
+        quizz = new EN_PL_Quizz(this, new Medium());
 
 
         next.setOnClickListener(new View.OnClickListener() {
@@ -70,32 +81,61 @@ public class QuizzActivity extends AppCompatActivity implements Observer {
         });
 
 
-        answer1.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-               checkAnswerCorrectness(answer1.getText().toString());
-            }
-        });
-        answer2.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                checkAnswerCorrectness(answer2.getText().toString());
-            }
-        });
-        answer3.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                checkAnswerCorrectness(answer3.getText().toString());
-            }
-        });
-        answer4.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                checkAnswerCorrectness(answer4.getText().toString());
-            }
-        });
+    }
+    private class AnswerHolder extends RecyclerView.ViewHolder{
+        String answer;
+        private TextView contentTextView;
+        public AnswerHolder(LayoutInflater inflater, ViewGroup parent ){
+            super(inflater.inflate(R.layout.answer_list_item, parent, false));
+            contentTextView= itemView.findViewById(R.id.answer_content);
+            View bookItem = itemView.findViewById(R.id.answer_list_item);
+            bookItem.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v){
+                    checkAnswerCorrectness(answer);
+                }
+            });
+        }
+        public void bind(String answer){
+            this.answer = answer;
+            contentTextView.setText(answer);
+        }
+    }
 
+    private class AnswerAdapter extends RecyclerView.Adapter<AnswerHolder>{
+        private List<String> possibleAnswers;
 
+        @NonNull
+        @Override
+        public AnswerHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType ){
+            return new AnswerHolder(getLayoutInflater(), parent);
+        }
+        @Override
+        public void onBindViewHolder(@NonNull AnswerHolder holder, int position){
+            if(possibleAnswers!= null){
+                String answer = possibleAnswers.get(position);
+                holder.bind(answer);
+            }
+            else{
+                Log.d("MainActivity", "No ANSWERS");
+            }
+
+        }
+        @Override
+        public int getItemCount(){
+
+            if(possibleAnswers !=null) {
+                return possibleAnswers.size();
+            }
+            else{
+                return 0;
+            }
+        }
+
+        public void setPossibleAnswers(List<String> possibleAnswers){
+            this.possibleAnswers = possibleAnswers;
+            notifyDataSetChanged();
+        }
     }
 
 }

@@ -6,8 +6,6 @@ Japp/src/androidTest/java/com/example/quizzapp/ExampleInstrumentedTest.java,5\5
 n
 >app/src/main/java/com/example/quizzapp/database/PolishDao.java,6\4\6490f8cb3f5c9ffbf94258a280c966c873ae5636
 o
-?app/src/main/java/com/example/quizzapp/database/PolishWord.java,f\9\f984c198b36df7b503542a9d08a2ee269c9baa2c
-o
 ?app/src/main/java/com/example/quizzapp/database/EnglishDao.java,a\8\a8b2cb52854d9bccdb66aaf18ed3f1f436e5b51b
 y
 Iapp/src/main/java/com/example/quizzapp/database/EnglishWordViewModel.java,a\9\a91456d4aea46c6cc2d158c99ebae76c9da04961
@@ -23,13 +21,3 @@ v
 Fapp/src/main/java/com/example/quizzapp/database/EnglishRepository.java,1\8\18d53334e3a49e24bb5357bc9a7a41f33625e26f
 r
 Bapp/src/main/java/com/example/quizzapp/database/WordsDatabase.java,e\e\eeff46d9d748a7c0b1773fdfdba34092ab12ba1e
-h
-8app/src/main/java/com/example/quizzapp/MainActivity.java,1\6\167019c66fdac15ae4950332af4830dc214325a8
-i
-9app/src/main/java/com/example/quizzapp/QuizzActivity.java,e\0\e08a9416161be2b37242a561be01371cce09d87c
-l
-<app/src/main/java/com/example/quizzapp/EditWordActivity.java,d\8\d892b5821699bc7e38c79c6b9425046878ee7531
-k
-;app/src/main/java/com/example/quizzapp/AddWordActivity.java,4\1\416a8dd7f8369293baf025a6d38e1b40b57ceeb7
-h
-8app/src/main/java/com/example/quizzapp/CrudActivity.java,e\6\e64219c2187d87728f8db689ec284b2db3518a5e
