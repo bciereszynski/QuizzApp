@@ -37,6 +37,7 @@ public abstract class Quizz {
     protected void detach(Observer obs) {
         observers.remove(obs);
     }
+
     ////////////////////////////////
 
     public abstract void setWordsLists();
@@ -51,10 +52,10 @@ public abstract class Quizz {
 
     //private static List<Difficulty> difficulties = Arrays.asList(new Medium(), new Hard());
     //todo: Bezparametrowo?
-    public Quizz(Observer owner, Difficulty startDifficulty, Mode mode){
+    public Quizz(Observer owner, Difficulty startDifficulty){
         this.owner = owner;
         attach((Observer) owner);
-        this.mode = mode;
+        //this.mode = mode;
         this.difficulty = startDifficulty;
         setWordsLists();
     }
@@ -68,7 +69,7 @@ public abstract class Quizz {
             this.currentQuestion = new Question(answer, possibleAnswers);
         }
         else{
-            //TODO :END TEST
+            //TODO: END TEST
         }
     }
 
