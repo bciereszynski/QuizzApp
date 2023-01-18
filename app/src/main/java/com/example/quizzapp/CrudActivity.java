@@ -106,7 +106,7 @@ public class CrudActivity extends AppCompatActivity {
             private TextView Text1,Text2;
             private Button deleteButton,editButton;
             public MyViewHolder(LayoutInflater layoutInflater, ViewGroup parent) {
-                super(layoutInflater.inflate(R.layout.table_row,parent,false));
+                super(layoutInflater.inflate(R.layout.word_list_item,parent,false));
                 Text1 = itemView.findViewById(R.id.translation);
                 Text2 = itemView.findViewById(R.id.word);
                 deleteButton = itemView.findViewById(R.id.deleteButton);
@@ -173,7 +173,7 @@ public class CrudActivity extends AppCompatActivity {
             private TextView Text1,Text2;
             private Button deleteButton,editButton;
             public MyViewHolder(LayoutInflater layoutInflater, ViewGroup parent) {
-                super(layoutInflater.inflate(R.layout.table_row,parent,false));
+                super(layoutInflater.inflate(R.layout.word_list_item,parent,false));
                 Text1 = itemView.findViewById(R.id.translation);
                 Text2 = itemView.findViewById(R.id.word);
                 deleteButton = itemView.findViewById(R.id.deleteButton);

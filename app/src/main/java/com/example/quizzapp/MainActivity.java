@@ -1,12 +1,10 @@
 package com.example.quizzapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.widget.TextViewCompat;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 

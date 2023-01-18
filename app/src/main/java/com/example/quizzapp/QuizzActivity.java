@@ -1,13 +1,5 @@
 package com.example.quizzapp;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,13 +9,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.quizzapp.database.PolishWord;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.quizzapp.models.difficulty.Medium;
 import com.example.quizzapp.models.quizz.EN_PL_Quizz;
 import com.example.quizzapp.models.quizz.Observer;
-import com.example.quizzapp.models.quizz.PL_EN_Quizz;
 import com.example.quizzapp.models.quizz.Quizz;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -33,10 +27,6 @@ public class QuizzActivity extends AppCompatActivity implements Observer {
 
     final AnswerAdapter adapter = new AnswerAdapter();
     private TextView qText;
-    private Button answer1;
-    private Button answer2;
-    private Button answer3;
-    private Button answer4;
     private Button next;
     private void checkAnswerCorrectness(String userAnswer){
         int resultMessageId = 0;

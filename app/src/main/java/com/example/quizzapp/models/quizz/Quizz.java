@@ -1,15 +1,12 @@
 package com.example.quizzapp.models.quizz;
 
 import com.example.quizzapp.database.Word;
-import com.example.quizzapp.models.difficulty.Difficulty;
-import com.example.quizzapp.models.difficulty.Hard;
-import com.example.quizzapp.models.difficulty.Medium;
 import com.example.quizzapp.models.Question;
 import com.example.quizzapp.models.RandomizingIterator;
 import com.example.quizzapp.models.WordsList;
+import com.example.quizzapp.models.difficulty.Difficulty;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public abstract class Quizz {
