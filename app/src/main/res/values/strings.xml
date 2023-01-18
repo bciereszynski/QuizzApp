@@ -16,9 +16,22 @@
     <string name="difficultyMedium">Średni</string>
     <string name="difficultyHard">Trudny</string>
 
+    <string-array name="difficultyChoice">
+        <item>Łatwy</item>
+        <item>Średni</item>
+        <item>Trudny</item>
+    </string-array>
+
     <string-array name="translationChoice">
         <item>Polski -> Angielski</item>
         <item>English -> Polish</item>
     </string-array>
+
+    <string-array name="modeChoice">
+        <item>Testy</item>
+        <item>Nauka</item>
+    </string-array>
+
+
 
 </resources>
