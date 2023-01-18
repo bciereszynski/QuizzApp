@@ -19,3 +19,7 @@ v
 Fapp/src/main/java/com/example/quizzapp/database/EnglishRepository.java,1\8\18d53334e3a49e24bb5357bc9a7a41f33625e26f
 r
 Bapp/src/main/java/com/example/quizzapp/database/WordsDatabase.java,e\e\eeff46d9d748a7c0b1773fdfdba34092ab12ba1e
+k
+;app/src/main/java/com/example/quizzapp/AddWordActivity.java,4\1\416a8dd7f8369293baf025a6d38e1b40b57ceeb7
+h
+8app/src/main/java/com/example/quizzapp/CrudActivity.java,e\6\e64219c2187d87728f8db689ec284b2db3518a5e
