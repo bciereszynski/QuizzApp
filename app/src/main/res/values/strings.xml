@@ -1,11 +1,16 @@
 <resources>
     <string name="app_name">QuizzApp</string>
     <string name="test">TEST</string>
+    <string name="filler">lorem ipsum</string>
     <string name="buttonCrud">CRUD</string>
     <string name="buttonTests">Testy</string>
     <string name="testQuestion">Przetłumacz słowo na angielski:</string>
-    <string name="wordForQuestion">English</string>
+
     <string name="title_activity_crud">CrudActivity</string>
+
+    <string name="next_question">Dalej</string>
+
+    <string name="correct_answer">Poprawna odpowiedz</string>
 
     <string name="difficultyEasy">Łatwy</string>
     <string name="difficultyMedium">Średni</string>

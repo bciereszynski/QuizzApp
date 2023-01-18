@@ -4,7 +4,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "english")
-public class EnglishWord {
+public class EnglishWord implements Word{
     public EnglishWord(String content, String translation){
         this.content = content;
         this.translation = translation;
