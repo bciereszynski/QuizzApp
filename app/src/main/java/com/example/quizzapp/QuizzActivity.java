@@ -36,6 +36,21 @@ public class QuizzActivity extends AppCompatActivity {
             Toast.makeText(this,resultMessageId,Toast.LENGTH_SHORT).show();
         }
     }
+    private TextView qText;
+    private Button answer1;
+    private Button answer2;
+    private Button answer3;
+    private Button answer4;
+    private Button next;
+
+    private void setNewQuestion(){
+        quizz.generateNewQuestion();
+        qText.setText(quizz.getCurrentQuestuion().getGoodAnswer().getContent());
+        answer1.setText(quizz.getCurrentQuestuion().getPossibleAnswers().get(0));
+        answer2.setText(quizz.getCurrentQuestuion().getPossibleAnswers().get(1));
+        answer3.setText(quizz.getCurrentQuestuion().getPossibleAnswers().get(2));
+        answer4.setText(quizz.getCurrentQuestuion().getPossibleAnswers().get(3));
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,18 +58,20 @@ public class QuizzActivity extends AppCompatActivity {
 
         PolishWordViewModel polishWordViewModel;
         EnglishWordViewModel englishWordViewModel;
-        TextView qText = findViewById(R.id.question);
 
-        Button answer1 = findViewById(R.id.button1);
-        Button answer2 = findViewById(R.id.button2);
-        Button answer3 = findViewById(R.id.button3);
-        Button answer4 = findViewById(R.id.button4);
-
+        //binding
+        qText = findViewById(R.id.question);
+        answer1 = findViewById(R.id.button1);
+        answer2 = findViewById(R.id.button2);
+        answer3 = findViewById(R.id.button3);
+        answer4 = findViewById(R.id.button4);
+        next = findViewById(R.id.button_next);
 
         polishWordViewModel = new ViewModelProvider(this).get(PolishWordViewModel.class);
         englishWordViewModel = new ViewModelProvider(this).get(EnglishWordViewModel.class);
 
         quizz = new Quizz(polish,english);
+
 
         englishWordViewModel.findAll().observe(this, englishWords -> {
             for (Word w : englishWords) {
@@ -66,15 +83,16 @@ public class QuizzActivity extends AppCompatActivity {
                     polish.add(w);
                 }
                 quizz.setTestedWords(polish);
-
-                quizz.generateNewQuestion();
-                qText.setText(quizz.getCurrentQuestuion().getGoodAnswer().getContent());
-                answer1.setText(quizz.getCurrentQuestuion().getPossibleAnswers().get(0));
-                answer2.setText(quizz.getCurrentQuestuion().getPossibleAnswers().get(1));
-                answer3.setText(quizz.getCurrentQuestuion().getPossibleAnswers().get(2));
-                answer4.setText(quizz.getCurrentQuestuion().getPossibleAnswers().get(3));
+                setNewQuestion();
             });
 
+        });
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setNewQuestion();
+            }
         });
 
 

@@ -16,10 +16,6 @@ import java.util.concurrent.Executors;
 @Database(entities = {PolishWord.class, EnglishWord.class}, version = 1, exportSchema = false)
 public abstract class WordsDatabase extends RoomDatabase {
     private static WordsDatabase databaseInstance = null;
-    static final ExecutorService databaseWriteExecutor = Executors.newSingleThreadExecutor();
-
-    public abstract PolishDao polishDao();
-    public abstract EnglishDao englishDao();
 
     static WordsDatabase getDatabase(final Context context){
         if(databaseInstance == null){
@@ -30,6 +26,7 @@ public abstract class WordsDatabase extends RoomDatabase {
         return databaseInstance;
     }
 
+    static final ExecutorService databaseWriteExecutor = Executors.newSingleThreadExecutor();
     private static final Callback roomDatabaseCallback = new Callback(){
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db){
@@ -60,6 +57,8 @@ public abstract class WordsDatabase extends RoomDatabase {
             });
         }
     };
+    public abstract PolishDao polishDao();
+    public abstract EnglishDao englishDao();
 }
 
 
