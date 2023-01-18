@@ -1,4 +1,4 @@
-package com.example.quizzapp.models;
+package com.example.quizzapp.models.difficulty;
 
 
 

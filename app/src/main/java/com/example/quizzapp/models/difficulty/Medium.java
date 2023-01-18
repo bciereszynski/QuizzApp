@@ -1,11 +1,9 @@
-package com.example.quizzapp.models;
+package com.example.quizzapp.models.difficulty;
 
 
 
 import com.example.quizzapp.database.Word;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
