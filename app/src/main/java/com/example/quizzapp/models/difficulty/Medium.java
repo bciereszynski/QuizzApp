@@ -32,8 +32,4 @@ public class Medium implements Difficulty{
     public Medium(){
 
     }
-
-    public Difficulty copy(){
-        return new Medium();
-    }
 }

@@ -5,6 +5,7 @@ import com.example.quizzapp.models.Question;
 import com.example.quizzapp.models.RandomizingIterator;
 import com.example.quizzapp.models.WordsList;
 import com.example.quizzapp.models.difficulty.Difficulty;
+import com.example.quizzapp.models.mode.Mode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,9 @@ public abstract class Quizz {
     private List<Word> answerWords;
     private RandomizingIterator<Word> testedWordsIterator;
     private Difficulty difficulty;
+    private Mode mode;
+    private int score = 0;
+    private int questionNr = 0;
 
 
     //OBSERVED OBJECT
@@ -46,15 +50,18 @@ public abstract class Quizz {
     }
 
     //private static List<Difficulty> difficulties = Arrays.asList(new Medium(), new Hard());
-
-    public Quizz(Observer owner, Difficulty startDifficulty){
+    //todo: Bezparametrowo?
+    public Quizz(Observer owner, Difficulty startDifficulty, Mode mode){
         this.owner = owner;
         attach((Observer) owner);
-        difficulty = startDifficulty;
+        this.mode = mode;
+        this.difficulty = startDifficulty;
         setWordsLists();
     }
 
+
     public void generateNewQuestion(){
+        questionNr++;
         if(testedWordsIterator.hasNext()){
             Word answer = testedWordsIterator.next();
             List<String> possibleAnswers = difficulty.generateAnswers(answerWords, answer);
@@ -63,6 +70,16 @@ public abstract class Quizz {
         else{
             //TODO :END TEST
         }
+    }
+
+    public boolean tryNext(){
+        return true;
+    }
+
+    public void next(){
+        if(currentQuestion.isAnsweredCorrectly())
+            score++;
+        generateNewQuestion();
     }
 
     public Question getCurrentQuestion() {

@@ -9,8 +9,6 @@ o
 ?app/src/main/java/com/example/quizzapp/database/EnglishDao.java,a\8\a8b2cb52854d9bccdb66aaf18ed3f1f436e5b51b
 y
 Iapp/src/main/java/com/example/quizzapp/database/EnglishWordViewModel.java,a\9\a91456d4aea46c6cc2d158c99ebae76c9da04961
-q
-Aapp/src/main/java/com/example/quizzapp/DifficultySetActivity.java,5\b\5ba68c3caa871002092055aa7bdec75098cfd748
 p
 @app/src/main/java/com/example/quizzapp/database/EnglishWord.java,7\8\7862dc71dd0f5a3caefbc760a1dc3119b4a6f2e4
 x

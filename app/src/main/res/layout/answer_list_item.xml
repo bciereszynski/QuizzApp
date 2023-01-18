@@ -6,12 +6,14 @@
     android:layout_height="wrap_content"
     android:id="@+id/answer_list_item">
 
-    <TextView
+    <Button
         android:id="@+id/answer_content"
-        android:layout_width="300px"
+        android:layout_width="match_parent"
         android:layout_height="100px"
-        android:text="word"
+        android:backgroundTint="#4254f5"
+        android:text="@string/filler"
+        android:layout_margin="40px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"  />
 </androidx.constraintlayout.widget.ConstraintLayout>

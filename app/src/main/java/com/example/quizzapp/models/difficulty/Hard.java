@@ -32,8 +32,4 @@ public class Hard implements Difficulty{
     public Hard(){
 
     }
-
-    public Difficulty copy(){
-        return new Hard();
-    }
 }

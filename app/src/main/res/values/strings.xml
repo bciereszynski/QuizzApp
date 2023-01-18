@@ -4,7 +4,7 @@
     <string name="filler">lorem ipsum</string>
     <string name="buttonCrud">CRUD</string>
     <string name="buttonTests">Testy</string>
-    <string name="testQuestion">Przetłumacz słowo na angielski:</string>
+    <string name="testQuestion">Przetłumacz słowo :</string>
 
     <string name="title_activity_crud">CrudActivity</string>
 
