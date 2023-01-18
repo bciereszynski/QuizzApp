@@ -18,6 +18,8 @@ import com.example.quizzapp.database.EnglishWordViewModel;
 import com.example.quizzapp.database.PolishWord;
 import com.example.quizzapp.database.PolishWordViewModel;
 import com.example.quizzapp.database.Word;
+import com.example.quizzapp.models.EN_PL_Quizz;
+import com.example.quizzapp.models.PL_EN_Quizz;
 import com.example.quizzapp.models.Question;
 import com.example.quizzapp.models.Quizz;
 
@@ -29,6 +31,13 @@ public class QuizzActivity extends AppCompatActivity {
     private Quizz quizz;
     private List<Word> polish = new LinkedList<Word>();;
     private List<Word> english = new LinkedList<Word>();;
+
+    private TextView qText;
+    private Button answer1;
+    private Button answer2;
+    private Button answer3;
+    private Button answer4;
+    private Button next;
     private void checkAnswerCorrectness(String userAnswer){
         int resultMessageId = 0;
         if(quizz.getCurrentQuestuion().TryAnswer(userAnswer)){
@@ -36,13 +45,6 @@ public class QuizzActivity extends AppCompatActivity {
             Toast.makeText(this,resultMessageId,Toast.LENGTH_SHORT).show();
         }
     }
-    private TextView qText;
-    private Button answer1;
-    private Button answer2;
-    private Button answer3;
-    private Button answer4;
-    private Button next;
-
     private void setNewQuestion(){
         quizz.generateNewQuestion();
         qText.setText(quizz.getCurrentQuestuion().getGoodAnswer().getContent());
@@ -70,19 +72,18 @@ public class QuizzActivity extends AppCompatActivity {
         polishWordViewModel = new ViewModelProvider(this).get(PolishWordViewModel.class);
         englishWordViewModel = new ViewModelProvider(this).get(EnglishWordViewModel.class);
 
-        quizz = new Quizz(polish,english);
+        quizz = new EN_PL_Quizz();
 
 
         englishWordViewModel.findAll().observe(this, englishWords -> {
             for (Word w : englishWords) {
                 english.add(w);
             }
-            quizz.setAnswerWords(english);
             polishWordViewModel.findAll().observe(this, polishWords -> {
                 for (Word w : polishWords) {
                     polish.add(w);
                 }
-                quizz.setTestedWords(polish);
+                quizz.setWords(polish,english);
                 setNewQuestion();
             });
 

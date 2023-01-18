@@ -7,30 +7,26 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Quizz {
+public abstract class Quizz {
     private Question currentQuestuion;
     private List<Word> answerWords;
     private RandomizingIterator<Word> testedWordsIterator;
     private Difficulty difficulty;
 
-    private static List<Difficulty> difficulties = Arrays.asList(new Medium(), new Hard());
-
-
-    public Quizz(List<Word> _testedWords, List<Word> _answerWords){
-        this.answerWords = _answerWords;
-        this.testedWordsIterator= new WordsList(_testedWords).getRandomizingIterator();
-        difficulty = new Medium();
+    protected void setAnswerWords(List<Word> answerWords) {
+        this.answerWords = answerWords;
     }
+    protected void setTestedWords(List<Word> testedWords){
+        this.testedWordsIterator= new WordsList(testedWords).getRandomizingIterator();
+
+    }
+
+    public abstract void setWords(List<Word> firstList, List<Word> secondList);
+
+    private static List<Difficulty> difficulties = Arrays.asList(new Medium(), new Hard());
 
     public Quizz(){
         difficulty = new Medium();
-    }
-
-    public void setAnswerWords(List<Word> answerWords) {
-        this.answerWords = answerWords;
-    }
-    public void setTestedWords(List<Word> testedWords){
-        this.testedWordsIterator= new WordsList(testedWords).getRandomizingIterator();
     }
 
     public void generateNewQuestion(){
