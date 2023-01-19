@@ -1,4 +1,4 @@
-package com.example.quizzapp.models.quizz;
+package com.example.quizzapp.models;
 
 public interface Observer {
     public void update();

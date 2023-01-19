@@ -11,6 +11,7 @@
     <string name="next_question">Dalej</string>
 
     <string name="correct_answer">Poprawna odpowiedz</string>
+    <string name="zero_answers">Brak odpowiedzi</string>
 
     <string name="difficultyEasy">Łatwy</string>
     <string name="difficultyMedium">Średni</string>

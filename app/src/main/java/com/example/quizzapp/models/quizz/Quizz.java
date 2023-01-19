@@ -1,6 +1,7 @@
 package com.example.quizzapp.models.quizz;
 
 import com.example.quizzapp.database.Word;
+import com.example.quizzapp.models.Observer;
 import com.example.quizzapp.models.Question;
 import com.example.quizzapp.models.RandomizingIterator;
 import com.example.quizzapp.models.WordsList;
@@ -16,7 +17,6 @@ public abstract class Quizz {
     private RandomizingIterator<Word> testedWordsIterator;
     private Difficulty difficulty;
     private Mode mode;
-    private int score = 0;
     private int questionNr = 0;
 
 
@@ -29,7 +29,6 @@ public abstract class Quizz {
             obs.update();
         }
     }
-
     protected void attach(Observer obs) {
         observers.add(obs);
     }
@@ -73,13 +72,11 @@ public abstract class Quizz {
         }
     }
 
-    public boolean tryNext(){
-        return true;
+    public boolean isContinuePossible(){
+        return currentQuestion.isAnsweredCorrectly();
     }
 
     public void next(){
-        if(currentQuestion.isAnsweredCorrectly())
-            score++;
         generateNewQuestion();
     }
 

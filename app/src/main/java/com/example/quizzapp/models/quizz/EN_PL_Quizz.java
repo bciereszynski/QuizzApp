@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelStoreOwner;
 import com.example.quizzapp.database.EnglishWordViewModel;
 import com.example.quizzapp.database.PolishWordViewModel;
 import com.example.quizzapp.database.Word;
+import com.example.quizzapp.models.Observer;
 import com.example.quizzapp.models.difficulty.Difficulty;
 
 import java.util.LinkedList;

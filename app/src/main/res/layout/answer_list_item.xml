@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/answer_list_item">
+    android:id="@+id/answer_list_item"
+    >
 
     <Button
         android:id="@+id/answer_content"
         android:layout_width="match_parent"
-        android:layout_height="100px"
+        android:layout_height="wrap_content"
         android:backgroundTint="#4254f5"
         android:text="@string/filler"
-        android:layout_margin="40px"
+        android:layout_margin="10px"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"  />

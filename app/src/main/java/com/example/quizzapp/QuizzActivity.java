@@ -15,9 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quizzapp.models.difficulty.Hard;
-import com.example.quizzapp.models.difficulty.Medium;
 import com.example.quizzapp.models.quizz.EN_PL_Quizz;
-import com.example.quizzapp.models.quizz.Observer;
+import com.example.quizzapp.models.Observer;
 import com.example.quizzapp.models.quizz.Quizz;
 
 import java.util.List;
@@ -25,16 +24,25 @@ import java.util.List;
 public class QuizzActivity extends AppCompatActivity implements Observer {
 
     private Quizz quizz;
+    private int selectedItem = -1;
 
     final AnswerAdapter adapter = new AnswerAdapter();
     private TextView qText;
     private Button next;
-    private void checkAnswerCorrectness(String userAnswer){
+    private boolean checkAnswerCorrectness(String userAnswer){
         int resultMessageId = 0;
-        if(quizz.getCurrentQuestion().TryAnswer(userAnswer)){
+        boolean result = quizz.getCurrentQuestion().TryAnswer(userAnswer);
+        if(quizz.isContinuePossible())
+            next.setEnabled(true);
+        if(result){
             resultMessageId = R.string.correct_answer;
             Toast.makeText(this,resultMessageId,Toast.LENGTH_SHORT).show();
+            return true;
         }
+        else{
+            return false;
+        }
+
     }
     private void setNewQuestion(){
         quizz.generateNewQuestion();
@@ -57,6 +65,8 @@ public class QuizzActivity extends AppCompatActivity implements Observer {
         qText = findViewById(R.id.question);
         next = findViewById(R.id.button_next);
 
+        next.setEnabled(false);
+
         RecyclerView recyclerView = findViewById(R.id.answersRecyclerView);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -76,21 +86,37 @@ public class QuizzActivity extends AppCompatActivity implements Observer {
     private class AnswerHolder extends RecyclerView.ViewHolder{
         String answer;
         private TextView contentTextView;
+        private Button answerButton;
         public AnswerHolder(LayoutInflater inflater, ViewGroup parent ){
             super(inflater.inflate(R.layout.answer_list_item, parent, false));
             contentTextView= itemView.findViewById(R.id.answer_content);
-            View bookItem = itemView.findViewById(R.id.answer_list_item);
-            bookItem.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v){
-                    checkAnswerCorrectness(answer);
+            answerButton= itemView.findViewById(R.id.answer_content);
+            answerButton.setOnClickListener((v)->{
+                int position = getBindingAdapterPosition();
+                if (position == RecyclerView.NO_POSITION || position == selectedItem) {
+                    return;
                 }
+                checkAnswerCorrectness(answer);
+                answerButton.setEnabled(false);
+
+                int previousSelected = selectedItem;
+                selectedItem = position;// Check item.
+
+                if (previousSelected != -1) {
+                    adapter.notifyItemChanged(previousSelected);// Deselected the previous item.
+                }
+                adapter.notifyItemChanged(selectedItem);// Select the current item.
             });
         }
-        public void bind(String answer){
+        public void bind(String answer, boolean choosen){
             this.answer = answer;
             contentTextView.setText(answer);
+            if(choosen)
+                answerButton.setEnabled(false);
+            else
+                answerButton.setEnabled(true);
         }
+
     }
 
     private class AnswerAdapter extends RecyclerView.Adapter<AnswerHolder>{
@@ -105,10 +131,11 @@ public class QuizzActivity extends AppCompatActivity implements Observer {
         public void onBindViewHolder(@NonNull AnswerHolder holder, int position){
             if(possibleAnswers!= null){
                 String answer = possibleAnswers.get(position);
-                holder.bind(answer);
+                Boolean choosen = position == selectedItem;
+                holder.bind(answer, choosen);
             }
             else{
-                Log.d("MainActivity", "No ANSWERS");
+                Log.d("MainActivity", "Answers ERROR");
             }
 
         }
