@@ -10,7 +10,7 @@ public class WordsList {
     public WordsList(List<Word> _words){
         this.words=_words;
     }
-    public RandomizingIterator getRandomizingIterator(){
+    public RandomizingIterator<Word> getRandomizingIterator(){
         return new RandomizingIterator<Word>(words);
     }
     public List<Word> getList(){

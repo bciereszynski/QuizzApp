@@ -1,6 +1,8 @@
 package com.example.quizzapp.models.mode;
 
+import com.example.quizzapp.models.Question;
+
 public interface Mode {
-    public boolean nextQuestion();
+    boolean isContinuePossible(Question question);
 
 }

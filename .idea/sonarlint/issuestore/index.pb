@@ -19,15 +19,3 @@ o
 ?app/src/main/java/com/example/quizzapp/database/PolishWord.java,f\9\f984c198b36df7b503542a9d08a2ee269c9baa2c
 l
 <app/src/main/java/com/example/quizzapp/EditWordActivity.java,d\8\d892b5821699bc7e38c79c6b9425046878ee7531
-l
-<app/src/main/java/com/example/quizzapp/models/WordsList.java,f\f\ff217031bd266de59289dc5bdfd12e4ad5f93f22
-q
-Aapp/src/main/java/com/example/quizzapp/DifficultySetActivity.java,5\b\5ba68c3caa871002092055aa7bdec75098cfd748
-m
-=app/src/main/java/com/example/quizzapp/models/mode/Learn.java,0\c\0cd3339399e136fa520e63a5c63e9b0226173fe9
-h
-8app/src/main/java/com/example/quizzapp/MainActivity.java,1\6\167019c66fdac15ae4950332af4830dc214325a8
-l
-<app/src/main/java/com/example/quizzapp/SettingsActivity.java,9\0\9070d551d25ddf139267438ad9c6fd395973bdff
-l
-<app/src/main/java/com/example/quizzapp/models/mode/Mode.java,e\4\e488f8d0a33e530081547b7c5694f3dda257f284

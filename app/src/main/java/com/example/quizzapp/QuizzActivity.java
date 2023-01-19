@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quizzapp.models.difficulty.Hard;
+import com.example.quizzapp.models.mode.Test;
 import com.example.quizzapp.models.quizz.EN_PL_Quizz;
 import com.example.quizzapp.models.Observer;
 import com.example.quizzapp.models.quizz.Quizz;
@@ -66,7 +67,7 @@ public class QuizzActivity extends AppCompatActivity implements Observer {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        quizz = new EN_PL_Quizz(this, new Hard());
+        quizz = new EN_PL_Quizz(this, new Hard(), new Test());
 
         next.setOnClickListener(v -> setNewQuestion());
 

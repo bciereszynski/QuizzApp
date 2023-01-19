@@ -22,7 +22,7 @@ public abstract class Quizz {
 
     //OBSERVED OBJECT
     protected Observer owner;
-    protected List<Observer> observers = new ArrayList<Observer>();
+    protected List<Observer> observers = new ArrayList<>();
 
     protected void callObservers() {
         for (Observer obs:observers) {
@@ -49,12 +49,12 @@ public abstract class Quizz {
 
     }
 
-    //private static List<Difficulty> difficulties = Arrays.asList(new Medium(), new Hard());
+
     //todo: Bezparametrowo?
-    public Quizz(Observer owner, Difficulty startDifficulty){
+    protected Quizz(Observer owner, Difficulty startDifficulty, Mode mode){
         this.owner = owner;
         attach((Observer) owner);
-        //this.mode = mode;
+        this.mode = mode;
         this.difficulty = startDifficulty;
         setWordsLists();
     }
@@ -73,12 +73,9 @@ public abstract class Quizz {
     }
 
     public boolean isContinuePossible(){
-        return currentQuestion.isAnsweredCorrectly();
+        return mode.isContinuePossible(currentQuestion);
     }
 
-    public void next(){
-        generateNewQuestion();
-    }
 
     public Question getCurrentQuestion() {
         return currentQuestion;
