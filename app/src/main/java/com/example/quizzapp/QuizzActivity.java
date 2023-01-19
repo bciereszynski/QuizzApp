@@ -24,9 +24,9 @@ import java.util.List;
 public class QuizzActivity extends AppCompatActivity implements Observer {
 
     private Quizz quizz;
-    private int selectedItem = -1;
 
     final AnswerAdapter adapter = new AnswerAdapter();
+    private int selectedItem;
     private TextView qText;
     private Button next;
     private boolean checkAnswerCorrectness(String userAnswer){
@@ -34,6 +34,9 @@ public class QuizzActivity extends AppCompatActivity implements Observer {
         boolean result = quizz.getCurrentQuestion().TryAnswer(userAnswer);
         if(quizz.isContinuePossible())
             next.setEnabled(true);
+        else{
+            next.setEnabled(false);
+        }
         if(result){
             resultMessageId = R.string.correct_answer;
             Toast.makeText(this,resultMessageId,Toast.LENGTH_SHORT).show();
@@ -48,6 +51,7 @@ public class QuizzActivity extends AppCompatActivity implements Observer {
         quizz.generateNewQuestion();
         qText.setText(quizz.getCurrentQuestion().getGoodAnswer().getContent());
         adapter.setPossibleAnswers(quizz.getCurrentQuestion().getPossibleAnswers());
+        selectedItem = -1;
     }
 
     @Override
@@ -59,7 +63,6 @@ public class QuizzActivity extends AppCompatActivity implements Observer {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quizz);
-
 
         //binding
         qText = findViewById(R.id.question);

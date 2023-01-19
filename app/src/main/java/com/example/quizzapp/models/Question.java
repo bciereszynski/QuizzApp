@@ -16,12 +16,11 @@ public class Question {
     }
     public Boolean TryAnswer(String answer){
         isAnswered = true;
-        if(goodAnswer.getTranslation() == answer){
+        if(goodAnswer.getTranslation() == answer)
             isAnsweredCorrectly = true;
-            return true;
-        }
-        isAnsweredCorrectly = false;
-        return false;
+        else
+            isAnsweredCorrectly = false;
+        return isAnsweredCorrectly;
     }
 
     public boolean isAnsweredCorrectly() {
