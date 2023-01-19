@@ -60,20 +60,20 @@ public abstract class Quizz {
     }
 
 
-    public void generateNewQuestion(){
-        questionNr++;
-        if(testedWordsIterator.hasNext()){
+    public String generateNewQuestion(){
+        if(mode.hasNext(++questionNr) && testedWordsIterator.hasNext() ){
             Word answer = testedWordsIterator.next();
             List<String> possibleAnswers = difficulty.generateAnswers(answerWords, answer);
             this.currentQuestion = new Question(answer, possibleAnswers);
+            return "OK";
         }
         else{
-            //TODO: END TEST
+            return mode.getEndingText();
         }
     }
 
     public boolean isContinuePossible(){
-        return mode.isContinuePossible(currentQuestion);
+        return mode.isQuestionCompleted(currentQuestion);
     }
 
 

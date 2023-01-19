@@ -19,6 +19,7 @@ import com.example.quizzapp.models.quizz.EN_PL_Quizz;
 import com.example.quizzapp.models.Observer;
 import com.example.quizzapp.models.quizz.Quizz;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class QuizzActivity extends AppCompatActivity implements Observer {
@@ -31,9 +32,17 @@ public class QuizzActivity extends AppCompatActivity implements Observer {
     private Button next;
 
     private void setNewQuestion() {
-        quizz.generateNewQuestion();
-        qText.setText(quizz.getCurrentQuestion().getGoodAnswer().getContent());
-        adapter.setPossibleAnswers(quizz.getCurrentQuestion().getPossibleAnswers());
+        String result = quizz.generateNewQuestion();
+
+        if(result.equals("OK")) {
+            qText.setText(quizz.getCurrentQuestion().getGoodAnswer().getContent());
+            adapter.setPossibleAnswers(quizz.getCurrentQuestion().getPossibleAnswers());
+        }
+        else{
+            qText.setText(result);
+            adapter.setPossibleAnswers(new ArrayList<>());
+        }
+        next.setEnabled(false);
         selectedItem = -1;
     }
 

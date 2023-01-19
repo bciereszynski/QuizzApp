@@ -16,14 +16,14 @@ import java.util.List;
 
 public class PL_EN_Quizz extends Quizz {
 
-    public void setWordsLists(){
-        PolishWordViewModel polishWordViewModel = new ViewModelProvider((ViewModelStoreOwner)owner).get(PolishWordViewModel.class);
-        EnglishWordViewModel englishWordViewModel = new ViewModelProvider((ViewModelStoreOwner)owner).get(EnglishWordViewModel.class);
+    public void setWordsLists() {
+        PolishWordViewModel polishWordViewModel = new ViewModelProvider((ViewModelStoreOwner) owner).get(PolishWordViewModel.class);
+        EnglishWordViewModel englishWordViewModel = new ViewModelProvider((ViewModelStoreOwner) owner).get(EnglishWordViewModel.class);
         List<Word> polish = new LinkedList<>();
         List<Word> english = new LinkedList<>();
-        englishWordViewModel.findAll().observe((LifecycleOwner)owner, englishWords -> {
+        englishWordViewModel.findAll().observe((LifecycleOwner) owner, englishWords -> {
             english.addAll(englishWords);
-            polishWordViewModel.findAll().observe((LifecycleOwner)owner, polishWords -> {
+            polishWordViewModel.findAll().observe((LifecycleOwner) owner, polishWords -> {
                 polish.addAll(polishWords);
                 setAnswerWords(english);
                 setTestedWords(polish);
@@ -34,7 +34,7 @@ public class PL_EN_Quizz extends Quizz {
 
     }
 
-    public PL_EN_Quizz(Observer owner, Difficulty startDifficulty, Mode mode){
+    public PL_EN_Quizz(Observer owner, Difficulty startDifficulty, Mode mode) {
         super(owner, startDifficulty, mode);
     }
 

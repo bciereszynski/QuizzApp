@@ -19,11 +19,10 @@ public class EN_PL_Quizz extends Quizz {
     public void setWordsLists() {
         PolishWordViewModel polishWordViewModel = new ViewModelProvider((ViewModelStoreOwner) owner).get(PolishWordViewModel.class);
         EnglishWordViewModel englishWordViewModel = new ViewModelProvider((ViewModelStoreOwner) owner).get(EnglishWordViewModel.class);
-        List<Word> polish = new LinkedList<>();
+        List<Word> polish = new LinkedList<>(); //Helper table used to cast LanguageWord into Word
         List<Word> english = new LinkedList<>();
         englishWordViewModel.findAll().observe((LifecycleOwner) owner, englishWords -> {
             english.addAll(englishWords);
-
             polishWordViewModel.findAll().observe((LifecycleOwner) owner, polishWords -> {
                 polish.addAll(polishWords);
                 setAnswerWords(polish);
