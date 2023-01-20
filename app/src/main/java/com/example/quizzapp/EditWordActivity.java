@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
@@ -15,12 +16,13 @@ import com.example.quizzapp.database.PolishWordViewModel;
 
 public class EditWordActivity extends AppCompatActivity {
 
-
+    public int requestCode;
     public static final String EXTRA_WORD = "pb.edu.pl.EXTRA_WORD";
     public static final String EXTRA_TRANSLATION = "pb.edu.pl.EXTRA_TRANSLATION";
-    PolishWordViewModel polishWordViewModel;
-    EnglishWordViewModel englishWordViewModel;
+    public PolishWordViewModel polishWordViewModel;
+    public EnglishWordViewModel englishWordViewModel;
     private EditText editWordText,editTranslationText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +57,11 @@ public class EditWordActivity extends AppCompatActivity {
                 String traslation = editTranslationText.getText().toString();
                 replayIntent.putExtra(EXTRA_WORD,word);
                 replayIntent.putExtra(EXTRA_TRANSLATION,traslation);
-                setResult(200,replayIntent);
+
             }
+            intent.putExtra("requestCode", requestCode);
+            if(this.requestCode==1)setResult(4,replayIntent);
+            if(this.requestCode==2)setResult(5,replayIntent);
             finish();
 
 

@@ -29,6 +29,7 @@ import java.util.List;
 public class CrudActivity extends AppCompatActivity {
 
     private Word editPolishWord;
+    private Word editEnglishWord;
 
     public static final int NEW_BOOK_ACTIVITY_REQUEST_CODE = 1;
     public static final String EXTRA_WORD = "pb.edu.pl.EXTRA_WORD";
@@ -57,7 +58,7 @@ public class CrudActivity extends AppCompatActivity {
             EnglishWord englishWordToAdd = new EnglishWord(wordOut,translationOut);
             englishWordViewModel.insert(englishWordToAdd);
         }
-        if(resultCode==200){
+        if(resultCode==4){
             String wordOut = data.getStringExtra(CrudActivity.EXTRA_WORD);
             String translationOut = data.getStringExtra(CrudActivity.EXTRA_TRANSLATION);
             editPolishWord.setContent(wordOut);
@@ -65,9 +66,15 @@ public class CrudActivity extends AppCompatActivity {
             polishWordViewModel.update((PolishWord) editPolishWord);
             editPolishWord = null;
         }
-        if(resultCode==201){
-
+        if(resultCode==5){
+            String wordOut = data.getStringExtra(CrudActivity.EXTRA_WORD);
+            String translationOut = data.getStringExtra(CrudActivity.EXTRA_TRANSLATION);
+            editEnglishWord.setContent(wordOut);
+            editEnglishWord.setTranslation(translationOut);
+            englishWordViewModel.update((EnglishWord) editEnglishWord);
+            editEnglishWord = null;
         }
+
 
     }
 
@@ -220,13 +227,17 @@ public class CrudActivity extends AppCompatActivity {
                 deleteButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(context,"Usun element "+englishWord.getContent().toString(),Toast.LENGTH_SHORT).show();
+                        englishWordViewModel.delete(englishWord);
                     }
                 });
                 editButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(context,"Edycja elementu "+englishWord.getContent().toString(),Toast.LENGTH_SHORT).show();
+                        editEnglishWord = englishWord;
+                        Intent intent = new Intent(CrudActivity.this, EditWordActivity.class);
+                        intent.putExtra(EXTRA_WORD,englishWord.getContent());
+                        intent.putExtra(EXTRA_TRANSLATION,englishWord.getTranslation());
+                        startActivityForResult(intent,2);
                     }
                 });
 

@@ -41,13 +41,5 @@ r
 Bapp/src/main/java/com/example/quizzapp/database/WordsDatabase.java,e\e\eeff46d9d748a7c0b1773fdfdba34092ab12ba1e
 x
 Happ/src/main/java/com/example/quizzapp/database/PolishWordViewModel.java,b\f\bfa1990c28876f1dbe43208b8179e81b45e12a66
-l
-<app/src/main/java/com/example/quizzapp/EditWordActivity.java,d\8\d892b5821699bc7e38c79c6b9425046878ee7531
 o
 ?app/src/main/java/com/example/quizzapp/database/PolishWord.java,f\9\f984c198b36df7b503542a9d08a2ee269c9baa2c
-h
-8app/src/main/java/com/example/quizzapp/CrudActivity.java,e\6\e64219c2187d87728f8db689ec284b2db3518a5e
-k
-;app/src/main/java/com/example/quizzapp/AddWordActivity.java,4\1\416a8dd7f8369293baf025a6d38e1b40b57ceeb7
-i
-9app/src/main/java/com/example/quizzapp/database/Word.java,7\2\7205e4537030cf32f0b2ae3fa29b4468f4c3a3bf

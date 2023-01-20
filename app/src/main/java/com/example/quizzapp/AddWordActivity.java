@@ -49,19 +49,15 @@ public class AddWordActivity extends AppCompatActivity implements AdapterView.On
                 replayIntent.putExtra(EXTRA_WORD,word);
                 replayIntent.putExtra(EXTRA_TRANSLATION,traslation);
 
-
-                if(spinner.getSelectedItem().toString()=="Polski -> Angielski"){
+                if(spinner.getSelectedItemPosition()==0){
                     setResult(2,replayIntent);
                 }
-                if(spinner.getSelectedItem().toString()=="English -> Polish"){
+
+                if(spinner.getSelectedItemPosition()==1){
                     setResult(3,replayIntent);
                 }
-
             }
             finish();
-
-
-
         });
     }
 
