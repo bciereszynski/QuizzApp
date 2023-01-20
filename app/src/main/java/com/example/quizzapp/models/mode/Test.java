@@ -23,7 +23,7 @@ public class Test implements Mode {
 
     @Override
     public String getEndingText() {
-        return App.getResource().getQuantityString(R.plurals.scoreMessage, score);
+        return App.getResource().getQuantityString(R.plurals.scoreMessage, score, score);
     }
 
     @Override
