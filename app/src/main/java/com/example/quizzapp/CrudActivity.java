@@ -21,13 +21,23 @@ import com.example.quizzapp.database.EnglishWord;
 import com.example.quizzapp.database.EnglishWordViewModel;
 import com.example.quizzapp.database.PolishWord;
 import com.example.quizzapp.database.PolishWordViewModel;
+import com.example.quizzapp.database.Word;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
 public class CrudActivity extends AppCompatActivity {
 
+    private Word editPolishWord;
+    private Word editEnglishWord;
+
     public static final int NEW_BOOK_ACTIVITY_REQUEST_CODE = 1;
+    public static final String EXTRA_WORD = "pb.edu.pl.EXTRA_WORD";
+    public static final String EXTRA_TRANSLATION = "pb.edu.pl.EXTRA_TRANSLATION";
+
+
+    PolishWordViewModel polishWordViewModel;
+    EnglishWordViewModel englishWordViewModel;
 
     RecyclerView recycleViewPl;
     RecyclerView recycleViewEn;
@@ -36,25 +46,51 @@ public class CrudActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==2){
+            String wordOut = data.getStringExtra(CrudActivity.EXTRA_WORD);
+            String translationOut = data.getStringExtra(CrudActivity.EXTRA_TRANSLATION);
+            PolishWord polishWordToAdd = new PolishWord(wordOut,translationOut);
+            polishWordViewModel.insert(polishWordToAdd);
+        }
+        if(resultCode==3){
+            String wordOut = data.getStringExtra(CrudActivity.EXTRA_WORD);
+            String translationOut = data.getStringExtra(CrudActivity.EXTRA_TRANSLATION);
+            EnglishWord englishWordToAdd = new EnglishWord(wordOut,translationOut);
+            englishWordViewModel.insert(englishWordToAdd);
+        }
+        if(resultCode==4){
+            String wordOut = data.getStringExtra(CrudActivity.EXTRA_WORD);
+            String translationOut = data.getStringExtra(CrudActivity.EXTRA_TRANSLATION);
+            editPolishWord.setContent(wordOut);
+            editPolishWord.setTranslation(translationOut);
+            polishWordViewModel.update((PolishWord) editPolishWord);
+            editPolishWord = null;
+        }
+        if(resultCode==5){
+            String wordOut = data.getStringExtra(CrudActivity.EXTRA_WORD);
+            String translationOut = data.getStringExtra(CrudActivity.EXTRA_TRANSLATION);
+            editEnglishWord.setContent(wordOut);
+            editEnglishWord.setTranslation(translationOut);
+            englishWordViewModel.update((EnglishWord) editEnglishWord);
+            editEnglishWord = null;
+        }
+
+
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        PolishWordViewModel polishWordViewModel;
         polishWordViewModel = new ViewModelProvider(this).get(PolishWordViewModel.class);
-
-        EnglishWordViewModel englishWordViewModel;
         englishWordViewModel = new ViewModelProvider(this).get(EnglishWordViewModel.class);
 
         setContentView(R.layout.activity_crud);
         addButton = findViewById(R.id.addButton);
-        addButton.setOnClickListener(new View.OnClickListener() {
+        addButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CrudActivity.this,AddWordActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,NEW_BOOK_ACTIVITY_REQUEST_CODE);
             }
         });
 
@@ -118,13 +154,19 @@ public class CrudActivity extends AppCompatActivity {
                 deleteButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(context,"Usun element "+polishWord.getContent().toString(),Toast.LENGTH_SHORT).show();
+                        polishWordViewModel.delete(polishWord);
+
                     }
                 });
                 editButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(context,"Edycja elementu "+polishWord.getContent().toString(),Toast.LENGTH_SHORT).show();
+                        editPolishWord = polishWord;
+                        Intent intent = new Intent(CrudActivity.this, EditWordActivity.class);
+                        intent.putExtra(EXTRA_WORD,polishWord.getContent());
+                        intent.putExtra(EXTRA_TRANSLATION,polishWord.getTranslation());
+                        startActivityForResult(intent,NEW_BOOK_ACTIVITY_REQUEST_CODE);
+
                     }
                 });
             }
@@ -185,13 +227,17 @@ public class CrudActivity extends AppCompatActivity {
                 deleteButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(context,"Usun element "+englishWord.getContent().toString(),Toast.LENGTH_SHORT).show();
+                        englishWordViewModel.delete(englishWord);
                     }
                 });
                 editButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(context,"Edycja elementu "+englishWord.getContent().toString(),Toast.LENGTH_SHORT).show();
+                        editEnglishWord = englishWord;
+                        Intent intent = new Intent(CrudActivity.this, EditWordActivity.class);
+                        intent.putExtra(EXTRA_WORD,englishWord.getContent());
+                        intent.putExtra(EXTRA_TRANSLATION,englishWord.getTranslation());
+                        startActivityForResult(intent,2);
                     }
                 });
 
