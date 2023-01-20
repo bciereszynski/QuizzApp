@@ -1,5 +1,7 @@
 package com.example.quizzapp.models.mode;
 
+import com.example.quizzapp.App;
+import com.example.quizzapp.R;
 import com.example.quizzapp.models.Question;
 
 public class Learn implements Mode {
@@ -14,6 +16,11 @@ public class Learn implements Mode {
 
     @Override
     public String getEndingText() {
-        return "Przejrzałeś już wszystkie pytania!";
+        return App.getResource().getString(R.string.endOfQuestions);
+    }
+
+    @Override
+    public String toString(){
+        return App.getResource().getString(R.string.LearnMode);
     }
 }

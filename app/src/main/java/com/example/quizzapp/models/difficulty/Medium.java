@@ -4,6 +4,7 @@ package com.example.quizzapp.models.difficulty;
 
 import android.content.res.Resources;
 
+import com.example.quizzapp.App;
 import com.example.quizzapp.R;
 import com.example.quizzapp.database.Word;
 
@@ -37,6 +38,6 @@ public class Medium implements Difficulty{
     }
     @Override
     public String toString(){
-        return "Trudny";
+        return App.getResource().getString(R.string.difficultyMedium);
     }
 }

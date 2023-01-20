@@ -7,6 +7,8 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
 
+import com.example.quizzapp.App;
+import com.example.quizzapp.R;
 import com.example.quizzapp.database.EnglishWordViewModel;
 import com.example.quizzapp.database.PolishWordViewModel;
 import com.example.quizzapp.database.Word;
@@ -35,6 +37,11 @@ public class EN_PL_Quizz extends Quizz {
 
         });
 
+    }
+
+    @Override
+    public String toString(){
+        return App.getResource().getString(R.string.englishToPolish);
     }
 
 

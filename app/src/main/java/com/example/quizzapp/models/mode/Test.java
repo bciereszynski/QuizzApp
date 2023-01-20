@@ -1,5 +1,7 @@
 package com.example.quizzapp.models.mode;
 
+import com.example.quizzapp.App;
+import com.example.quizzapp.R;
 import com.example.quizzapp.models.Question;
 
 public class Test implements Mode {
@@ -21,6 +23,11 @@ public class Test implements Mode {
 
     @Override
     public String getEndingText() {
-        return "Twój wynik: " + score + " punkty";
+        return App.getResource().getQuantityString(R.plurals.scoreMessage, score);
+    }
+
+    @Override
+    public String toString(){
+        return App.getResource().getString(R.string.TestMode);
     }
 }

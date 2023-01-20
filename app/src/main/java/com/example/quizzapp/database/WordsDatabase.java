@@ -26,6 +26,8 @@ public abstract class WordsDatabase extends RoomDatabase {
         return databaseInstance;
     }
 
+
+
     static final ExecutorService databaseWriteExecutor = Executors.newSingleThreadExecutor();
     private static final Callback roomDatabaseCallback = new Callback(){
         @Override

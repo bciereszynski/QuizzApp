@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">QuizzApp</string>
-    <string name="test">Quizz</string>
     <string name="filler">…</string>
     <string name="buttonCrud">Słownik</string>
     <string name="buttonTests">Testy</string>
@@ -10,34 +9,32 @@
     <string name= "languageVersion">Wersja językowa</string>
     <string name= "modeLabel">Tryb</string>
     <string name= "autoIncrementDifficulty">Automatyczne zwiększanie trudności</string>
-
-    <string name="title_activity_crud">CrudActivity</string>
+    <string name="title_activity_crud">Słownik</string>
 
     <string name="submit">Potwierdź</string>
-
     <string name="next_question">Dalej</string>
-
-    <string name="correct_answer">Poprawna odpowiedz</string>
-    <string name="zero_answers">Brak odpowiedzi</string>
 
     <string name="difficultyEasy">Łatwy</string>
     <string name="difficultyMedium">Średni</string>
     <string name="difficultyHard">Trudny</string>
 
-    <string-array name="difficultyChoice">
-        <item>Łatwy</item>
-        <item>Średni</item>
-        <item>Trudny</item>
-    </string-array>
+    <string name="polishToEnglish">Polski -> Angielski</string>
+    <string name="englishToPolish">English -> Polish</string>
+
+    <string name="TestMode">Test</string>
+    <string name="LearnMode">Nauka</string>
+
+    <string name="endOfQuestions">Przejrzałeś już wszystkie pytania!</string>
+    <plurals name="scoreMessage">
+        <item quantity="one">Twój wynik: %d punkt"</item>
+        <item quantity="few">Twój wynik: %d punkty</item>
+        <item quantity="many">Twój wynik: %d punktów</item>
+        <item quantity="other">Liczba punktów: %d</item>
+    </plurals>
 
     <string-array name="translationChoice">
         <item>Polski -> Angielski</item>
         <item>English -> Polish</item>
-    </string-array>
-
-    <string-array name="modeChoice">
-        <item>Testy</item>
-        <item>Nauka</item>
     </string-array>
 
 
