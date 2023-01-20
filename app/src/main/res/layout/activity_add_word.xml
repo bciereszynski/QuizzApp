@@ -7,7 +7,7 @@
     tools:context=".AddWordActivity">
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/addWordSubmit"
         android:layout_width="600px"
         android:layout_height="200px"
         android:layout_marginTop="10dp"
@@ -17,16 +17,17 @@
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/addTranslationText"
+        android:hint="trenslation"
         android:layout_width="600px"
         android:layout_height="200px"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/addWordText" />
 
     <Spinner
         android:id="@+id/spinner"
@@ -35,17 +36,17 @@
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@+id/addTranslationText" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:hint="wybierz jakie robisz tłumaczenie"
+        android:id="@+id/addWordText"
+        android:hint="content"
         android:layout_width="600px"
         android:layout_height="200px"
         android:layout_marginTop="200dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
