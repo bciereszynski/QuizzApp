@@ -49,13 +49,17 @@ public abstract class Quizz {
 
     }
 
-
-    //todo: Bezparametrowo?
-    protected Quizz(Observer owner, Difficulty startDifficulty, Mode mode){
-        this.owner = owner;
-        attach((Observer) owner);
+    public void setDifficulty(Difficulty difficulty){
+        this.difficulty = difficulty;
+    }
+    public void setMode(Mode mode){
         this.mode = mode;
-        this.difficulty = startDifficulty;
+    }
+    public void setOwner(Observer owner){
+        this.owner = owner;
+    }
+    public void start(){
+        attach((Observer) owner);
         setWordsLists();
     }
 

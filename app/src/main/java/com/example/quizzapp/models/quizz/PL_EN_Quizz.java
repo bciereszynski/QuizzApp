@@ -1,5 +1,8 @@
 package com.example.quizzapp.models.quizz;
 
+import android.app.Activity;
+
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
@@ -32,10 +35,6 @@ public class PL_EN_Quizz extends Quizz {
 
         });
 
-    }
-
-    public PL_EN_Quizz(Observer owner, Difficulty startDifficulty, Mode mode) {
-        super(owner, startDifficulty, mode);
     }
 
 

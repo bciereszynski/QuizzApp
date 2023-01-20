@@ -1,18 +1,8 @@
 
-k
-;app/src/test/java/com/example/quizzapp/ExampleUnitTest.java,c\3\c33181a1eb7298a3c51d2a8bb9d4acf8c5b4b221
-z
-Japp/src/androidTest/java/com/example/quizzapp/ExampleInstrumentedTest.java,5\5\55dd722c90e52117c2338f490a2ddc00d7c55e2b
 n
 >app/src/main/java/com/example/quizzapp/database/PolishDao.java,6\4\6490f8cb3f5c9ffbf94258a280c966c873ae5636
 x
 Happ/src/main/java/com/example/quizzapp/database/PolishWordViewModel.java,b\f\bfa1990c28876f1dbe43208b8179e81b45e12a66
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
-k
-;app/src/main/java/com/example/quizzapp/AddWordActivity.java,4\1\416a8dd7f8369293baf025a6d38e1b40b57ceeb7
-h
-8app/src/main/java/com/example/quizzapp/CrudActivity.java,e\6\e64219c2187d87728f8db689ec284b2db3518a5e
 u
 Eapp/src/main/java/com/example/quizzapp/database/PolishRepository.java,5\2\5230b8c4232940982fff5d56930cedbaa65696f5
 o
