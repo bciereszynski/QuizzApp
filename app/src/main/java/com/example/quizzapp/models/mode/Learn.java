@@ -8,7 +8,7 @@ public class Learn implements Mode {
     }
 
     @Override
-    public boolean hasNext(int questionNumber) {
+    public boolean hasNext() {
         return true;
     }
 

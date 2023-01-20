@@ -7,5 +7,3 @@ u
 Eapp/src/main/java/com/example/quizzapp/database/PolishRepository.java,5\2\5230b8c4232940982fff5d56930cedbaa65696f5
 o
 ?app/src/main/java/com/example/quizzapp/database/PolishWord.java,f\9\f984c198b36df7b503542a9d08a2ee269c9baa2c
-l
-<app/src/main/java/com/example/quizzapp/EditWordActivity.java,d\8\d892b5821699bc7e38c79c6b9425046878ee7531

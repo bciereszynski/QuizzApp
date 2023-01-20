@@ -11,6 +11,8 @@
         android:id="@+id/translate_instructions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:text="@string/testQuestion" />
 
     <TextView
@@ -18,8 +20,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/monocraft"
-        android:textSize="50dp"
+        android:textSize="50sp"
         android:layout_gravity="center"
+        android:gravity="center"
         android:text="@string/filler" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/answersRecyclerView"
@@ -30,7 +33,8 @@
         android:id="@+id/button_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40px"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center"
         android:text="@string/next_question" />
 
 </LinearLayout>

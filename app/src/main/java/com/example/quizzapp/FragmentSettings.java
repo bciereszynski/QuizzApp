@@ -15,8 +15,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import com.example.quizzapp.models.difficulty.Hard;
 import com.example.quizzapp.models.difficulty.Medium;
+import com.example.quizzapp.models.mode.Learn;
 import com.example.quizzapp.models.mode.Test;
+import com.example.quizzapp.models.quizz.EN_PL_Quizz;
 import com.example.quizzapp.models.quizz.PL_EN_Quizz;
 import com.example.quizzapp.models.quizz.Quizz;
 
@@ -40,18 +43,11 @@ public class FragmentSettings extends Fragment implements AdapterView.OnItemSele
 
 
         Spinner spinnerDifficulty = view.findViewById(R.id.spinnerSettingsDifficluty);
-        ArrayAdapter<CharSequence> adapterDifficluty = ArrayAdapter.createFromResource(getActivity(),R.array.difficultyChoice, android.R.layout.simple_spinner_item);
-        adapterDifficluty.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerDifficulty.setAdapter(adapterDifficluty);
+        ArrayAdapter<CharSequence> adapterDifficulty = ArrayAdapter.createFromResource(getActivity(),R.array.difficultyChoice, android.R.layout.simple_spinner_item);
+        adapterDifficulty.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerDifficulty.setAdapter(adapterDifficulty);
         spinnerDifficulty.setOnItemSelectedListener(this);
 
-        Button submitButton = view.findViewById(R.id.buttonSettings);
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
         return view;
     }
 
@@ -62,9 +58,9 @@ public class FragmentSettings extends Fragment implements AdapterView.OnItemSele
     }
 
     public Quizz getQuizz(){
-        Quizz quizz = new PL_EN_Quizz();
-        quizz.setDifficulty(new Medium());
-        quizz.setMode(new Test());
+        Quizz quizz = new EN_PL_Quizz();
+        quizz.setDifficulty(new Hard());
+        quizz.setMode(new Learn());
         return quizz;
     }
 

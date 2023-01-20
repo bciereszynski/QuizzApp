@@ -46,7 +46,11 @@ public class FragmentQuizz extends Fragment implements Observer {
             adapter.setPossibleAnswers(quizz.getCurrentQuestion().getPossibleAnswers());
         }
         else{
+            instruction.setVisibility(View.GONE);
+            next.setVisibility(View.GONE);
             questionText.setText(result);
+            questionText.setTextSize(30);
+            questionText.setOnClickListener(v-> getActivity().finish() );
             adapter.setPossibleAnswers(new ArrayList<>());
         }
         next.setEnabled(false);
@@ -56,11 +60,6 @@ public class FragmentQuizz extends Fragment implements Observer {
     private void checkAnswerCorrectness(String userAnswer) {
         boolean result = quizz.getCurrentQuestion().TryAnswer(userAnswer);
         next.setEnabled(quizz.isContinuePossible());
-
-        if (result) {
-            Toast.makeText(getActivity(),  R.string.correct_answer, Toast.LENGTH_SHORT).show();
-        }
-
     }
 
     @Override
@@ -73,6 +72,7 @@ public class FragmentQuizz extends Fragment implements Observer {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_quizz, container, false);
         //binding
+        instruction = view.findViewById(R.id.translate_instructions);
         questionText = view.findViewById(R.id.question);
         next = view.findViewById(R.id.button_next);
 
@@ -82,9 +82,6 @@ public class FragmentQuizz extends Fragment implements Observer {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        quizz = new EN_PL_Quizz();
-        quizz.setDifficulty(new Medium());
-        quizz.setMode(new Test());
         quizz.setOwner(this);
         quizz.start();
 

@@ -17,7 +17,7 @@ public abstract class Quizz {
     private RandomizingIterator<Word> testedWordsIterator;
     private Difficulty difficulty;
     private Mode mode;
-    private int questionNr = 0;
+
 
 
     //OBSERVED OBJECT
@@ -59,13 +59,13 @@ public abstract class Quizz {
         this.owner = owner;
     }
     public void start(){
-        attach((Observer) owner);
+        attach(owner);
         setWordsLists();
     }
 
 
     public String generateNewQuestion(){
-        if(mode.hasNext(++questionNr) && testedWordsIterator.hasNext() ){
+        if(mode.hasNext() && testedWordsIterator.hasNext() ){
             Word answer = testedWordsIterator.next();
             List<String> possibleAnswers = difficulty.generateAnswers(answerWords, answer);
             this.currentQuestion = new Question(answer, possibleAnswers);

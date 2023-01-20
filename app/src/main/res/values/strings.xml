@@ -1,12 +1,19 @@
 <resources>
     <string name="app_name">QuizzApp</string>
-    <string name="test">TEST</string>
-    <string name="filler">lorem ipsum</string>
-    <string name="buttonCrud">CRUD</string>
+    <string name="test">Quizz</string>
+    <string name="filler">…</string>
+    <string name="buttonCrud">Słownik</string>
     <string name="buttonTests">Testy</string>
-    <string name="testQuestion">Przetłumacz słowo :</string>
+    <string name="testQuestion">Przetłumacz słowo</string>
+
+    <string name= "difficultyLabel">Poziom trudności</string>
+    <string name= "languageVersion">Wersja językowa</string>
+    <string name= "modeLabel">Tryb</string>
+    <string name= "autoIncrementDifficulty">Automatyczne zwiększanie trudności</string>
 
     <string name="title_activity_crud">CrudActivity</string>
+
+    <string name="submit">Potwierdź</string>
 
     <string name="next_question">Dalej</string>
 
