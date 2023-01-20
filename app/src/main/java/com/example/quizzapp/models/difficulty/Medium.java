@@ -2,6 +2,9 @@ package com.example.quizzapp.models.difficulty;
 
 
 
+import android.content.res.Resources;
+
+import com.example.quizzapp.R;
 import com.example.quizzapp.database.Word;
 
 import java.util.LinkedHashSet;
@@ -31,5 +34,9 @@ public class Medium implements Difficulty{
     }
     public Medium(){
 
+    }
+    @Override
+    public String toString(){
+        return "Trudny";
     }
 }

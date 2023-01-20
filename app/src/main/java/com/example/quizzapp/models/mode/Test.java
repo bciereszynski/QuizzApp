@@ -21,6 +21,6 @@ public class Test implements Mode {
 
     @Override
     public String getEndingText() {
-        return "Twój wynik: " + score + "punkty";
+        return "Twój wynik: " + score + " punkty";
     }
 }

@@ -68,9 +68,5 @@ public class QuizzActivity extends AppCompatActivity {
                     .commit();
             next.setVisibility(GONE);
         });
-
-
     }
-
-
 }
