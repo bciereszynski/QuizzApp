@@ -18,9 +18,44 @@ z
 Japp/src/androidTest/java/com/example/quizzapp/ExampleInstrumentedTest.java,5\5\55dd722c90e52117c2338f490a2ddc00d7c55e2b
 o
 ?app/src/main/java/com/example/quizzapp/database/EnglishDao.java,a\8\a8b2cb52854d9bccdb66aaf18ed3f1f436e5b51b
+<<<<<<< Updated upstream
 l
 <app/src/main/java/com/example/quizzapp/EditWordActivity.java,d\8\d892b5821699bc7e38c79c6b9425046878ee7531
 i
 9app/src/main/java/com/example/quizzapp/QuizzActivity.java,e\0\e08a9416161be2b37242a561be01371cce09d87c
 h
 8app/src/main/java/com/example/quizzapp/MainActivity.java,1\6\167019c66fdac15ae4950332af4830dc214325a8
+=======
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+t
+Dapp/src/main/java/com/example/quizzapp/models/quizz/PL_EN_Quizz.java,6\c\6c9c78f13256601c499b417a2f70aa0586d17bb1
+v
+Fapp/src/main/java/com/example/quizzapp/models/RandomizingIterator.java,0\2\02196ec282dd0adc39bc3e24d33592f240849ea0
+r
+Bapp/src/main/java/com/example/quizzapp/models/difficulty/Hard.java,8\a\8a3ed3a6f552a32dcdaeed720b6eace9d88387e6
+t
+Dapp/src/main/java/com/example/quizzapp/models/difficulty/Medium.java,9\4\94a0708a094a10ab29d364b3c672fc5cea61a799
+h
+8app/src/main/java/com/example/quizzapp/MainActivity.java,1\6\167019c66fdac15ae4950332af4830dc214325a8
+i
+9app/src/main/java/com/example/quizzapp/QuizzActivity.java,e\0\e08a9416161be2b37242a561be01371cce09d87c
+n
+>app/src/main/java/com/example/quizzapp/models/quizz/Quizz.java,f\9\f9e5d9e11c25ee2bbcab4d84f5d149b3a48ac4d2
+l
+<app/src/main/java/com/example/quizzapp/SettingsActivity.java,9\0\9070d551d25ddf139267438ad9c6fd395973bdff
+l
+<app/src/main/java/com/example/quizzapp/models/WordsList.java,f\f\ff217031bd266de59289dc5bdfd12e4ad5f93f22
+q
+Aapp/src/main/java/com/example/quizzapp/DifficultySetActivity.java,5\b\5ba68c3caa871002092055aa7bdec75098cfd748
+n
+>app/src/main/java/com/example/quizzapp/database/PolishDao.java,6\4\6490f8cb3f5c9ffbf94258a280c966c873ae5636
+u
+Eapp/src/main/java/com/example/quizzapp/database/PolishRepository.java,5\2\5230b8c4232940982fff5d56930cedbaa65696f5
+r
+Bapp/src/main/java/com/example/quizzapp/database/WordsDatabase.java,e\e\eeff46d9d748a7c0b1773fdfdba34092ab12ba1e
+o
+?app/src/main/java/com/example/quizzapp/database/PolishWord.java,f\9\f984c198b36df7b503542a9d08a2ee269c9baa2c
+i
+9app/src/main/java/com/example/quizzapp/database/Word.java,7\2\7205e4537030cf32f0b2ae3fa29b4468f4c3a3bf
+>>>>>>> Stashed changes

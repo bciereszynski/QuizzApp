@@ -30,7 +30,7 @@
             android:text="Tlumaczenia Polski -> Angielski" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewEn"
+            android:id="@+id/recyclerViewPl"
             android:layout_width="409dp"
             android:layout_height="327dp" />
 
@@ -41,7 +41,7 @@
             android:text="Tlumaczenia Angielski -> Polski" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewPl"
+            android:id="@+id/recyclerViewEn"
             android:layout_width="408dp"
             android:layout_height="314dp"
             android:layout_marginTop="24dp">

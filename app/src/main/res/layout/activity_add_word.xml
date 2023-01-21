@@ -18,7 +18,7 @@
 
     <EditText
         android:id="@+id/addTranslationText"
-        android:hint="trenslation"
+        android:hint="translation"
         android:layout_width="600px"
         android:layout_height="200px"
         android:layout_marginTop="10dp"
