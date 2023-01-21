@@ -61,8 +61,21 @@
         android:id="@+id/checkBox"
         android:layout_width="300px"
         android:layout_height="200px"
+        android:layout_marginTop="56dp"
         android:text="@string/autoIncrementDifficulty"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.215"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerSettingsMode" />
+
+    <CheckBox
+        android:id="@+id/checkBoxLog"
+        android:layout_width="300px"
+        android:layout_height="200px"
+        android:layout_marginTop="56dp"
+        android:text="@string/enableLogger"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.808"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerSettingsMode" />
 </androidx.constraintlayout.widget.ConstraintLayout>
