@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,9 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quizzapp.models.Observer;
-import com.example.quizzapp.models.difficulty.Medium;
-import com.example.quizzapp.models.mode.Test;
-import com.example.quizzapp.models.quizz.EN_PL_Quizz;
 import com.example.quizzapp.models.quizz.Quizz;
 
 import java.util.ArrayList;

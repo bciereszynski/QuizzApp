@@ -2,25 +2,21 @@ package com.example.quizzapp;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 
 import com.example.quizzapp.models.difficulty.Difficulty;
 import com.example.quizzapp.models.difficulty.Hard;
 import com.example.quizzapp.models.difficulty.Medium;
-import com.example.quizzapp.models.mode.Learn;
-import com.example.quizzapp.models.mode.Mode;
-import com.example.quizzapp.models.mode.Test;
+import com.example.quizzapp.models.quizz.mode.Learn;
+import com.example.quizzapp.models.quizz.mode.Mode;
+import com.example.quizzapp.models.quizz.mode.Test;
 import com.example.quizzapp.models.quizz.EN_PL_Quizz;
 import com.example.quizzapp.models.quizz.PL_EN_Quizz;
 import com.example.quizzapp.models.quizz.Quizz;

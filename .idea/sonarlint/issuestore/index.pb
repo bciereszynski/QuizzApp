@@ -20,7 +20,23 @@ o
 ?app/src/main/java/com/example/quizzapp/database/EnglishDao.java,a\8\a8b2cb52854d9bccdb66aaf18ed3f1f436e5b51b
 l
 <app/src/main/java/com/example/quizzapp/EditWordActivity.java,d\8\d892b5821699bc7e38c79c6b9425046878ee7531
-i
-9app/src/main/java/com/example/quizzapp/QuizzActivity.java,e\0\e08a9416161be2b37242a561be01371cce09d87c
 h
 8app/src/main/java/com/example/quizzapp/MainActivity.java,1\6\167019c66fdac15ae4950332af4830dc214325a8
+q
+Aapp/src/main/java/com/example/quizzapp/DifficultySetActivity.java,5\b\5ba68c3caa871002092055aa7bdec75098cfd748
+k
+;app/src/main/java/com/example/quizzapp/AddWordActivity.java,4\1\416a8dd7f8369293baf025a6d38e1b40b57ceeb7
+k
+;app/src/main/java/com/example/quizzapp/models/Question.java,5\e\5e10688fd1ab1ce4288ade9ff9fd579e609a0642
+l
+<app/src/main/java/com/example/quizzapp/models/WordsList.java,f\f\ff217031bd266de59289dc5bdfd12e4ad5f93f22
+v
+Fapp/src/main/java/com/example/quizzapp/database/EnglishRepository.java,1\8\18d53334e3a49e24bb5357bc9a7a41f33625e26f
+u
+Eapp/src/main/java/com/example/quizzapp/database/PolishRepository.java,5\2\5230b8c4232940982fff5d56930cedbaa65696f5
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+_
+/app/src/main/java/com/example/quizzapp/App.java,3\5\35952f4e82c8d5fb5a278954afc88251914db498
+r
+Bapp/src/main/java/com/example/quizzapp/database/WordsDatabase.java,e\e\eeff46d9d748a7c0b1773fdfdba34092ab12ba1e

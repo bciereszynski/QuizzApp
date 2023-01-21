@@ -6,12 +6,12 @@ import com.example.quizzapp.models.Question;
 import com.example.quizzapp.models.RandomizingIterator;
 import com.example.quizzapp.models.WordsList;
 import com.example.quizzapp.models.difficulty.Difficulty;
-import com.example.quizzapp.models.mode.Mode;
+import com.example.quizzapp.models.quizz.mode.Mode;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Quizz {
+public abstract class Quizz implements IQuizz {
     private Question currentQuestion;
     private List<Word> answerWords;
     private RandomizingIterator<Word> testedWordsIterator;
@@ -39,8 +39,6 @@ public abstract class Quizz {
 
     ////////////////////////////////
 
-    public abstract void setWordsLists();
-
     protected void setAnswerWords(List<Word> answerWords) {
         this.answerWords = answerWords;
     }
@@ -49,21 +47,26 @@ public abstract class Quizz {
 
     }
 
+    @Override
     public void setDifficulty(Difficulty difficulty){
         this.difficulty = difficulty;
     }
+    @Override
     public void setMode(Mode mode){
         this.mode = mode;
     }
+    @Override
     public void setOwner(Observer owner){
         this.owner = owner;
     }
+    @Override
     public void start(){
         attach(owner);
         setWordsLists();
     }
 
 
+    @Override
     public String generateNewQuestion(){
         if(mode.hasNext() && testedWordsIterator.hasNext() ){
             Word answer = testedWordsIterator.next();
@@ -76,11 +79,13 @@ public abstract class Quizz {
         }
     }
 
+    @Override
     public boolean isContinuePossible(){
         return mode.isQuestionCompleted(currentQuestion);
     }
 
 
+    @Override
     public Question getCurrentQuestion() {
         return currentQuestion;
     }
