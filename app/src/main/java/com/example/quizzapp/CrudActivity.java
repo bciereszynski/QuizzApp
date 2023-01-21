@@ -106,7 +106,7 @@ public class CrudActivity extends AppCompatActivity {
         recycleViewEn.setLayoutManager(new LinearLayoutManager(this));
         englishWordViewModel.findAll().observe(this,adapterEn::setEnglishWordList);
     }
-    public class AdapterPl extends RecyclerView.Adapter<AdapterPl.MyViewHolder> {
+    public class AdapterPl extends RecyclerView.Adapter<AdapterPl.CrudViewHolder> {
 
         private List<PolishWord> polishWordList;
         Context context;
@@ -115,12 +115,12 @@ public class CrudActivity extends AppCompatActivity {
         }
         @NonNull
         @Override
-        public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new MyViewHolder(getLayoutInflater(),parent);
+        public CrudViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new CrudViewHolder(getLayoutInflater(),parent);
         }
 
         @Override
-        public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull CrudViewHolder holder, int position) {
             if(polishWordList!=null){
                 PolishWord polishWord = polishWordList.get(position);
                 holder.bind(polishWord);
@@ -138,19 +138,19 @@ public class CrudActivity extends AppCompatActivity {
             }
         }
 
-        private class MyViewHolder extends RecyclerView.ViewHolder {
-            private TextView Text1,Text2;
+        private class CrudViewHolder extends RecyclerView.ViewHolder {
+            private TextView wordContent, wordTranslation;
             private Button deleteButton,editButton;
-            public MyViewHolder(LayoutInflater layoutInflater, ViewGroup parent) {
+            public CrudViewHolder(LayoutInflater layoutInflater, ViewGroup parent) {
                 super(layoutInflater.inflate(R.layout.word_list_item,parent,false));
-                Text1 = itemView.findViewById(R.id.word);
-                Text2 = itemView.findViewById(R.id.translation);
+                wordContent = itemView.findViewById(R.id.word);
+                wordTranslation = itemView.findViewById(R.id.translation);
                 deleteButton = itemView.findViewById(R.id.deleteButton);
                 editButton = itemView.findViewById(R.id.editButton);
             }
             public void bind(PolishWord polishWord){
-                Text1.setText(polishWord.getContent());
-                Text2.setText(polishWord.getTranslation());
+                wordContent.setText(polishWord.getContent());
+                wordTranslation.setText(polishWord.getTranslation());
                 deleteButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -177,7 +177,7 @@ public class CrudActivity extends AppCompatActivity {
         }
 
     }
-    public class AdapterEn extends RecyclerView.Adapter<AdapterEn.MyViewHolder> {
+    public class AdapterEn extends RecyclerView.Adapter<AdapterEn.CrudViewHolder> {
 
         private List<EnglishWord> englishWordList;
         Context context;
@@ -186,17 +186,15 @@ public class CrudActivity extends AppCompatActivity {
         }
         @NonNull
         @Override
-        public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new MyViewHolder(getLayoutInflater(),parent);
+        public CrudViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new CrudViewHolder(getLayoutInflater(),parent);
         }
 
         @Override
-        public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull CrudViewHolder holder, int position) {
             if(englishWordList!=null){
                 EnglishWord englishWord = englishWordList.get(position);
                 holder.bind(englishWord);
-
-
             }
             else Toast.makeText(context,"Nie ma co wyswietlic",Toast.LENGTH_SHORT).show();
         }
@@ -211,19 +209,19 @@ public class CrudActivity extends AppCompatActivity {
             }
         }
 
-        private class MyViewHolder extends RecyclerView.ViewHolder {
-            private TextView Text1,Text2;
+        private class CrudViewHolder extends RecyclerView.ViewHolder {
+            private TextView wordContext, wordTranslation;
             private Button deleteButton,editButton;
-            public MyViewHolder(LayoutInflater layoutInflater, ViewGroup parent) {
+            public CrudViewHolder(LayoutInflater layoutInflater, ViewGroup parent) {
                 super(layoutInflater.inflate(R.layout.word_list_item,parent,false));
-                Text1 = itemView.findViewById(R.id.word);
-                Text2 = itemView.findViewById(R.id.translation);
+                wordContext = itemView.findViewById(R.id.word);
+                wordTranslation = itemView.findViewById(R.id.translation);
                 deleteButton = itemView.findViewById(R.id.deleteButton);
                 editButton = itemView.findViewById(R.id.editButton);
             }
             public void bind(EnglishWord englishWord){
-                Text1.setText(englishWord.getContent());
-                Text2.setText(englishWord.getTranslation());
+                wordContext.setText(englishWord.getContent());
+                wordTranslation.setText(englishWord.getTranslation());
                 deleteButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
