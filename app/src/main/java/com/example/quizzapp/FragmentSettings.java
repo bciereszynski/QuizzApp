@@ -16,6 +16,7 @@ import com.example.quizzapp.models.difficulty.Difficulty;
 import com.example.quizzapp.models.difficulty.Hard;
 import com.example.quizzapp.models.difficulty.Medium;
 import com.example.quizzapp.models.quizz.IQuizz;
+import com.example.quizzapp.models.quizz.Logger;
 import com.example.quizzapp.models.quizz.WithAutoincrement;
 import com.example.quizzapp.models.quizz.mode.Learn;
 import com.example.quizzapp.models.quizz.mode.Mode;
@@ -36,6 +37,7 @@ public class FragmentSettings extends Fragment {
     private Spinner spinnerLang;
     private Spinner spinnerMode;
     private CheckBox checkAutoDifficulty;
+    private CheckBox checkBoxLog;
 
     @Nullable
     @Override
@@ -59,6 +61,7 @@ public class FragmentSettings extends Fragment {
         spinnerDifficulty.setAdapter(adapterDifficulty);
 
         checkAutoDifficulty = view.findViewById(R.id.checkBoxAutoDifficulty);
+        checkBoxLog = view.findViewById(R.id.checkBoxLog);
 
 
         return view;
@@ -71,6 +74,9 @@ public class FragmentSettings extends Fragment {
         quizz.setMode((Mode) spinnerMode.getSelectedItem());
         if(checkAutoDifficulty.isChecked()){
             quizz = new WithAutoincrement(quizz);
+        }
+        if(checkBoxLog.isChecked()){
+            quizz = new Logger(quizz);
         }
 
         return quizz;
