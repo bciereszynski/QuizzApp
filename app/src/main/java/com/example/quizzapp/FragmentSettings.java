@@ -9,11 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.Spinner;
 
 import com.example.quizzapp.models.difficulty.Difficulty;
 import com.example.quizzapp.models.difficulty.Hard;
 import com.example.quizzapp.models.difficulty.Medium;
+import com.example.quizzapp.models.quizz.IQuizz;
+import com.example.quizzapp.models.quizz.WithAutoincrement;
 import com.example.quizzapp.models.quizz.mode.Learn;
 import com.example.quizzapp.models.quizz.mode.Mode;
 import com.example.quizzapp.models.quizz.mode.Test;
@@ -26,12 +29,13 @@ import java.util.Arrays;
 import java.util.List;
 
 public class FragmentSettings extends Fragment {
-    private List<Difficulty> difficulties = new ArrayList<Difficulty>(Arrays.asList(new Medium(), new Hard()));
-    private List<Quizz> quizzes = new ArrayList<Quizz>(Arrays.asList(new PL_EN_Quizz(), new EN_PL_Quizz()));
-    private List<Mode> modes = new ArrayList<>(Arrays.asList(new Test(), new Learn()));
+    private final List<Difficulty> difficulties = new ArrayList<>(Arrays.asList(new Medium(), new Hard()));
+    private final List<Quizz> quizzes = new ArrayList<>(Arrays.asList(new PL_EN_Quizz(), new EN_PL_Quizz()));
+    private final List<Mode> modes = new ArrayList<>(Arrays.asList(new Test(), new Learn()));
     private Spinner spinnerDifficulty;
     private Spinner spinnerLang;
     private Spinner spinnerMode;
+    private CheckBox checkAutoDifficulty;
 
     @Nullable
     @Override
@@ -54,14 +58,21 @@ public class FragmentSettings extends Fragment {
         adapterDifficulty.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerDifficulty.setAdapter(adapterDifficulty);
 
+        checkAutoDifficulty = view.findViewById(R.id.checkBoxAutoDifficulty);
+
+
         return view;
     }
 
 
-    public Quizz getQuizz() {
-        Quizz quizz = (Quizz) spinnerLang.getSelectedItem();
+    public IQuizz getQuizz() {
+        IQuizz quizz = (Quizz) spinnerLang.getSelectedItem();
         quizz.setDifficulty((Difficulty) spinnerDifficulty.getSelectedItem());
         quizz.setMode((Mode) spinnerMode.getSelectedItem());
+        if(checkAutoDifficulty.isChecked()){
+            quizz = new WithAutoincrement(quizz);
+        }
+
         return quizz;
     }
 

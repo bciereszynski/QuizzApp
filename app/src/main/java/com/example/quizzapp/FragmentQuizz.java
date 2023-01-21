@@ -15,14 +15,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quizzapp.models.Observer;
-import com.example.quizzapp.models.quizz.Quizz;
-
+import com.example.quizzapp.models.quizz.IQuizz;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentQuizz extends Fragment implements Observer {
 
-    private Quizz quizz;
+    private IQuizz quizz;
 
     final AnswerAdapter adapter = new AnswerAdapter();
     private int selectedItem;
@@ -30,7 +29,7 @@ public class FragmentQuizz extends Fragment implements Observer {
     private TextView questionText;
     private Button next;
 
-    public void setQuizz(Quizz quizz){
+    public void setQuizz(IQuizz quizz){
         this.quizz = quizz;
     }
 
@@ -54,7 +53,7 @@ public class FragmentQuizz extends Fragment implements Observer {
     }
 
     private void checkAnswerCorrectness(String userAnswer) {
-        boolean result = quizz.getCurrentQuestion().TryAnswer(userAnswer);
+        quizz.getCurrentQuestion().tryAnswer(userAnswer);
         next.setEnabled(quizz.isContinuePossible());
     }
 

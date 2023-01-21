@@ -8,6 +8,8 @@ import com.example.quizzapp.models.quizz.mode.Mode;
 public interface IQuizz {
     void setWordsLists();
 
+    Difficulty getDifficulty();
+
     void setDifficulty(Difficulty difficulty);
 
     void setMode(Mode mode);

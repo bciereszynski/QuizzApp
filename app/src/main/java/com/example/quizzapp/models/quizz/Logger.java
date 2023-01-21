@@ -62,4 +62,8 @@ public class Logger implements IQuizz
         Log.d("QUIZZAPP", "Wywołanie metody getCurrentQuestion");
         return base.getCurrentQuestion();
     }
+    public Difficulty getDifficulty(){
+        Log.d("QUIZZAPP", "Wywołanie metody getDifficulty");
+        return base.getDifficulty();
+    }
 }

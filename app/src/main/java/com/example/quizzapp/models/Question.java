@@ -5,22 +5,19 @@ import com.example.quizzapp.database.Word;
 import java.util.List;
 
 public class Question {
-    private Word goodAnswer;
-    private List<String> possibleAnswers;
+    private final Word goodAnswer;
+    private final List<String> possibleAnswers;
     private boolean isAnsweredCorrectly = false;
     private boolean isAnswered = false;
 
-    public Question(Word _goodAnswer, List<String> _possibleAnswers){
-        this.goodAnswer = _goodAnswer;
-        this.possibleAnswers = _possibleAnswers;
+    public Question(Word goodAnswer, List<String> possibleAnswers){
+        this.goodAnswer = goodAnswer;
+        this.possibleAnswers = possibleAnswers;
     }
-    public Boolean TryAnswer(String answer){
+    public void tryAnswer(String answer){
         isAnswered = true;
-        if(goodAnswer.getTranslation() == answer)
-            isAnsweredCorrectly = true;
-        else
-            isAnsweredCorrectly = false;
-        return isAnsweredCorrectly;
+        isAnsweredCorrectly = goodAnswer.getTranslation().equals(answer);
+
     }
 
     public boolean isAnsweredCorrectly() {

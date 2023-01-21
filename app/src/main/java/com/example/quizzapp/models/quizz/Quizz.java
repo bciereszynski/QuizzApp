@@ -52,6 +52,10 @@ public abstract class Quizz implements IQuizz {
         this.difficulty = difficulty;
     }
     @Override
+    public Difficulty getDifficulty(){
+        return difficulty;
+    }
+    @Override
     public void setMode(Mode mode){
         this.mode = mode;
     }

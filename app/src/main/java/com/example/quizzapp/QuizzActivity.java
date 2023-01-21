@@ -9,11 +9,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.quizzapp.models.quizz.IQuizz;
 import com.example.quizzapp.models.quizz.Quizz;
 
 public class QuizzActivity extends AppCompatActivity {
 
-    private Quizz quizz;
+    private IQuizz quizz;
     private FragmentManager fragmentManager;
     private FragmentQuizz fragmentq;
 
