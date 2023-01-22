@@ -9,6 +9,7 @@
     <string name= "languageVersion">Wersja językowa</string>
     <string name= "modeLabel">Tryb</string>
     <string name= "autoIncrementDifficulty">Automatyczne zwiększanie trudności</string>
+    <string name= "enableLogger">Czy zezwalasz na zbieranie informacji testowych?</string>
     <string name="title_activity_crud">Słownik</string>
 
     <string name="submit">Potwierdź</string>

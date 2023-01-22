@@ -1,4 +1,4 @@
-package com.example.quizzapp.models.mode;
+package com.example.quizzapp.models.quizz.mode;
 
 import com.example.quizzapp.models.Question;
 

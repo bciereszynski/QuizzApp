@@ -7,8 +7,8 @@ import java.util.Random;
 import java.util.Set;
 
 public class RandomizingIterator<T> implements Iterator<T> {
-    private Iterator<Integer> positions;
-    private List<T> list;
+    private final Iterator<Integer> positions;
+    private final List<T> list;
     public RandomizingIterator(List<T> iteratedList) {
         Random r = new Random();
         this.list = iteratedList;

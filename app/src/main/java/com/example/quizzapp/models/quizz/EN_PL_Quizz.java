@@ -1,8 +1,5 @@
 package com.example.quizzapp.models.quizz;
 
-import android.app.Activity;
-
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
@@ -12,9 +9,6 @@ import com.example.quizzapp.R;
 import com.example.quizzapp.database.EnglishWordViewModel;
 import com.example.quizzapp.database.PolishWordViewModel;
 import com.example.quizzapp.database.Word;
-import com.example.quizzapp.models.Observer;
-import com.example.quizzapp.models.difficulty.Difficulty;
-import com.example.quizzapp.models.mode.Mode;
 
 import java.util.LinkedList;
 import java.util.List;

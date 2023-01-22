@@ -4,12 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.quizzapp.database.EnglishWordViewModel;
 import com.example.quizzapp.database.PolishWordViewModel;
