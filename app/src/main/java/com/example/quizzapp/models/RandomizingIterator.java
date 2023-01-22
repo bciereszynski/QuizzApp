@@ -9,11 +9,12 @@ import java.util.Set;
 public class RandomizingIterator<T> implements Iterator<T> {
     private final Iterator<Integer> positions;
     private final List<T> list;
+
     public RandomizingIterator(List<T> iteratedList) {
         Random r = new Random();
         this.list = iteratedList;
         Set<Integer> indexSet = new LinkedHashSet<>();
-        while(indexSet.size() != iteratedList.size())
+        while (indexSet.size() != iteratedList.size())
             indexSet.add(r.nextInt(iteratedList.size()));
 
         positions = indexSet.iterator();

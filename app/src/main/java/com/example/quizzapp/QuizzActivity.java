@@ -10,14 +10,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.quizzapp.models.quizz.IQuizz;
-import com.example.quizzapp.models.quizz.Quizz;
 
 public class QuizzActivity extends AppCompatActivity {
 
     private IQuizz quizz;
     private FragmentManager fragmentManager;
     private FragmentQuizz fragmentq;
-
     private Button next;
 
 
@@ -33,7 +31,6 @@ public class QuizzActivity extends AppCompatActivity {
 
 
         fragmentManager = getSupportFragmentManager();
-        //Fragment fragment = fragmentManager.findFragmentById(R.id.fragment_container);
         fragmentManager.beginTransaction()
                 .attach(fragmentq)
                 .add(R.id.fragment_container, fragment)

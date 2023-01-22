@@ -32,7 +32,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class FragmentSettings extends Fragment {
-    private final List<Difficulty> difficulties = new ArrayList<>(Arrays.asList(new VeryEasy(), new Easy(),new Medium(), new Hard()));
+    private final List<Difficulty> difficulties = new ArrayList<>(Arrays.asList(new VeryEasy(), new Easy(), new Medium(), new Hard()));
     private final List<Quizz> quizzes = new ArrayList<>(Arrays.asList(new PL_EN_Quizz(), new EN_PL_Quizz()));
     private final List<Mode> modes = new ArrayList<>(Arrays.asList(new Learn(), new Test()));
     private Spinner spinnerDifficulty;
@@ -74,10 +74,10 @@ public class FragmentSettings extends Fragment {
         IQuizz quizz = (Quizz) spinnerLang.getSelectedItem();
         quizz.setDifficulty((Difficulty) spinnerDifficulty.getSelectedItem());
         quizz.setMode((Mode) spinnerMode.getSelectedItem());
-        if(checkAutoDifficulty.isChecked()){
+        if (checkAutoDifficulty.isChecked()) {
             quizz = new WithAutoincrement(quizz);
         }
-        if(checkBoxLog.isChecked()){
+        if (checkBoxLog.isChecked()) {
             quizz = new Logger(quizz);
         }
 

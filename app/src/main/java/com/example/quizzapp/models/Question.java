@@ -10,11 +10,12 @@ public class Question {
     private boolean isAnsweredCorrectly = false;
     private boolean isAnswered = false;
 
-    public Question(Word goodAnswer, List<String> possibleAnswers){
+    public Question(Word goodAnswer, List<String> possibleAnswers) {
         this.goodAnswer = goodAnswer;
         this.possibleAnswers = possibleAnswers;
     }
-    public void tryAnswer(String answer){
+
+    public void tryAnswer(String answer) {
         isAnswered = true;
         isAnsweredCorrectly = goodAnswer.getTranslation().equals(answer);
 
@@ -23,6 +24,7 @@ public class Question {
     public boolean isAnsweredCorrectly() {
         return isAnsweredCorrectly;
     }
+
     public boolean isAnswered() {
         return isAnswered;
     }

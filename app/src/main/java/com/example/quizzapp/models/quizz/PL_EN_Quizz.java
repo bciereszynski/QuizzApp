@@ -30,8 +30,9 @@ public class PL_EN_Quizz extends Quizz {
             });
         });
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         return App.getResource().getString(R.string.polishToEnglish);
     }
 

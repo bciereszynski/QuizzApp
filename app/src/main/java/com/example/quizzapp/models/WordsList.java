@@ -7,13 +7,15 @@ import java.util.List;
 public class WordsList {
     private final List<Word> words;
 
-    public WordsList(List<Word> words){
-        this.words=words;
+    public WordsList(List<Word> words) {
+        this.words = words;
     }
-    public RandomizingIterator<Word> getRandomizingIterator(){
+
+    public RandomizingIterator<Word> getRandomizingIterator() {
         return new RandomizingIterator<>(words);
     }
-    public List<Word> getList(){
+
+    public List<Word> getList() {
         return words;
     }
 

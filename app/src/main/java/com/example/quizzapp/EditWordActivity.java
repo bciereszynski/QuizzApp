@@ -1,16 +1,12 @@
 package com.example.quizzapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
-
-import com.example.quizzapp.database.EnglishWordViewModel;
-import com.example.quizzapp.database.PolishWordViewModel;
 
 public class EditWordActivity extends AppCompatActivity {
 

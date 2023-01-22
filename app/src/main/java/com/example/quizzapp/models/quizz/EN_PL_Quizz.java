@@ -34,7 +34,7 @@ public class EN_PL_Quizz extends Quizz {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return App.getResource().getString(R.string.englishToPolish);
     }
 

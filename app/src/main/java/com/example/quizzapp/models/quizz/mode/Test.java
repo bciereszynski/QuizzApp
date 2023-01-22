@@ -9,7 +9,8 @@ public class Test implements Mode {
     private int questionNr = 1;
     private static final int MAX_QUESTION_NUMBER = 5;
     private boolean lastAnswerCorrectness = false;
-    public boolean isQuestionCompleted(Question question){
+
+    public boolean isQuestionCompleted(Question question) {
         lastAnswerCorrectness = question.isAnsweredCorrectly();
         return question.isAnswered();
     }
@@ -17,8 +18,8 @@ public class Test implements Mode {
     @Override
     public boolean hasNext() { //first usage after finishing first question
         questionNr++;
-        if(lastAnswerCorrectness) score++;
-        return questionNr<=MAX_QUESTION_NUMBER;
+        if (lastAnswerCorrectness) score++;
+        return questionNr <= MAX_QUESTION_NUMBER;
     }
 
     @Override
@@ -27,7 +28,7 @@ public class Test implements Mode {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return App.getResource().getString(R.string.TestMode);
     }
 }

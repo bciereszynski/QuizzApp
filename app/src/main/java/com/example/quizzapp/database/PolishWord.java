@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "polish")
 public class PolishWord implements Word {
-    public PolishWord(String content, String translation){
+    public PolishWord(String content, String translation) {
         this.content = content;
         this.translation = translation;
     }
@@ -31,7 +31,6 @@ public class PolishWord implements Word {
     public void setContent(String content) {
         this.content = content;
     }
-
 
 
     public String getTranslation() {

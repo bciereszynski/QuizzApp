@@ -19,16 +19,16 @@ public abstract class Quizz implements IQuizz {
     private Mode mode;
 
 
-
     //OBSERVED OBJECT
     protected Observer owner;
     protected List<Observer> observers = new ArrayList<>();
 
     protected void callObservers() {
-        for (Observer obs:observers) {
+        for (Observer obs : observers) {
             obs.update();
         }
     }
+
     protected void attach(Observer obs) {
         observers.add(obs);
     }
@@ -42,49 +42,53 @@ public abstract class Quizz implements IQuizz {
     protected void setAnswerWords(List<Word> answerWords) {
         this.answerWords = answerWords;
     }
-    protected void setTestedWords(List<Word> testedWords){
-        this.testedWordsIterator= new WordsList(testedWords).getRandomizingIterator();
+
+    protected void setTestedWords(List<Word> testedWords) {
+        this.testedWordsIterator = new WordsList(testedWords).getRandomizingIterator();
 
     }
 
     @Override
-    public void setDifficulty(Difficulty difficulty){
+    public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
     }
+
     @Override
-    public Difficulty getDifficulty(){
+    public Difficulty getDifficulty() {
         return difficulty;
     }
+
     @Override
-    public void setMode(Mode mode){
+    public void setMode(Mode mode) {
         this.mode = mode;
     }
+
     @Override
-    public void setOwner(Observer owner){
+    public void setOwner(Observer owner) {
         this.owner = owner;
     }
+
     @Override
-    public void start(){
+    public void start() {
         attach(owner);
         setWordsLists();
     }
 
 
     @Override
-    public String generateNewQuestion(){
-        if(mode.hasNext() && testedWordsIterator.hasNext() ){
+    public String generateNewQuestion() {
+        if (mode.hasNext() && testedWordsIterator.hasNext()) {
             Word answer = testedWordsIterator.next();
             List<String> possibleAnswers = difficulty.generateAnswers(answerWords, answer);
             this.currentQuestion = new Question(answer, possibleAnswers);
             return "OK";
-        }
-        else{
+        } else {
             return mode.getEndingText();
         }
     }
 
     @Override
-    public boolean isContinuePossible(){
+    public boolean isContinuePossible() {
         return mode.isQuestionCompleted(currentQuestion);
     }
 

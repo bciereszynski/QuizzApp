@@ -7,8 +7,8 @@ public interface Word {
 
 
     public String getContent();
-    public void setContent(String content);
 
+    public void setContent(String content);
 
 
     public String getTranslation();

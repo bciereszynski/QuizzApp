@@ -12,21 +12,25 @@ public class PolishWordViewModel extends AndroidViewModel {
     private final PolishRepository polishRepository;
     private final LiveData<List<PolishWord>> words;
 
-    public PolishWordViewModel(@NonNull Application application){
+    public PolishWordViewModel(@NonNull Application application) {
         super(application);
         polishRepository = new PolishRepository(application);
         words = polishRepository.findAllBooks();
     }
-    public LiveData<List<PolishWord>> findAll(){
+
+    public LiveData<List<PolishWord>> findAll() {
         return words;
     }
+
     public void insert(PolishWord word) {
         polishRepository.insert(word);
     }
-    public void update(PolishWord word){
+
+    public void update(PolishWord word) {
         polishRepository.update(word);
     }
-    public void delete(PolishWord word){
+
+    public void delete(PolishWord word) {
         polishRepository.delete(word);
     }
 }

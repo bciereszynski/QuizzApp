@@ -5,7 +5,7 @@ import com.example.quizzapp.R;
 import com.example.quizzapp.models.Question;
 
 public class Learn implements Mode {
-    public boolean isQuestionCompleted(Question question){
+    public boolean isQuestionCompleted(Question question) {
         return question.isAnsweredCorrectly();
     }
 
@@ -20,7 +20,7 @@ public class Learn implements Mode {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return App.getResource().getString(R.string.LearnMode);
     }
 }

@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quizzapp.models.Observer;
 import com.example.quizzapp.models.quizz.IQuizz;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,23 +30,22 @@ public class FragmentQuizz extends Fragment implements Observer {
     private TextView questionText;
     private Button next;
 
-    public void setQuizz(IQuizz quizz){
+    public void setQuizz(IQuizz quizz) {
         this.quizz = quizz;
     }
 
     private void setNewQuestion() {
         String result = quizz.generateNewQuestion();
 
-        if(result.equals("OK")) {
+        if (result.equals("OK")) {
             questionText.setText(quizz.getCurrentQuestion().getGoodAnswer().getContent());
             adapter.setPossibleAnswers(quizz.getCurrentQuestion().getPossibleAnswers());
-        }
-        else{
+        } else {
             instruction.setVisibility(View.GONE);
             next.setVisibility(View.GONE);
             questionText.setText(result);
             questionText.setTextSize(30);
-            questionText.setOnClickListener(v-> getActivity().finish() );
+            questionText.setOnClickListener(v -> getActivity().finish());
             adapter.setPossibleAnswers(new ArrayList<>());
         }
         next.setEnabled(false);
