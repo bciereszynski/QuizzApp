@@ -7,8 +7,8 @@
 
     <Button
         android:id="@+id/deleteButton"
-        android:layout_width="200px"
-        android:layout_height="100px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:backgroundTint="#F44336"
         android:text="Del"
         app:layout_constraintStart_toEndOf="@+id/editButton"
@@ -16,8 +16,8 @@
 
     <Button
         android:id="@+id/editButton"
-        android:layout_width="200px"
-        android:layout_height="100px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:backgroundTint="#4254f5"
         android:text="Edit"
         app:layout_constraintStart_toEndOf="@+id/translation"
@@ -28,6 +28,7 @@
         android:layout_width="300px"
         android:layout_height="100px"
         android:text="translation"
+        android:gravity="center"
         app:layout_constraintStart_toEndOf="@+id/word"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,6 +37,7 @@
         android:layout_width="300px"
         android:layout_height="100px"
         android:text="word"
+        android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

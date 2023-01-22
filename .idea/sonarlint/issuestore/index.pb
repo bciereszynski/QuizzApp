@@ -1,18 +1,8 @@
 
 l
-<app/src/main/java/com/example/quizzapp/FragmentSettings.java,1\c\1c10bd785c4ad43108eeed734dec8dffc46ea407
-i
-9app/src/main/java/com/example/quizzapp/FragmentQuizz.java,a\6\a6ff74ab8cadb2a6512a7cbbd166227609a7ac13
-l
 <app/src/main/java/com/example/quizzapp/EditWordActivity.java,d\8\d892b5821699bc7e38c79c6b9425046878ee7531
 h
 8app/src/main/java/com/example/quizzapp/CrudActivity.java,e\6\e64219c2187d87728f8db689ec284b2db3518a5e
-q
-Aapp/src/main/java/com/example/quizzapp/DifficultySetActivity.java,5\b\5ba68c3caa871002092055aa7bdec75098cfd748
-_
-/app/src/main/java/com/example/quizzapp/App.java,3\5\35952f4e82c8d5fb5a278954afc88251914db498
-k
-;app/src/main/java/com/example/quizzapp/AddWordActivity.java,4\1\416a8dd7f8369293baf025a6d38e1b40b57ceeb7
 o
 ?app/src/main/java/com/example/quizzapp/database/EnglishDao.java,a\8\a8b2cb52854d9bccdb66aaf18ed3f1f436e5b51b
 p

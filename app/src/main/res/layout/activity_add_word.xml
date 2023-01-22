@@ -11,14 +11,14 @@
         android:layout_width="600px"
         android:layout_height="200px"
         android:layout_marginTop="10dp"
-        android:text="Button"
+        android:text="@string/submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <EditText
         android:id="@+id/addTranslationText"
-        android:hint="translation"
+        android:hint="@string/translation"
         android:layout_width="600px"
         android:layout_height="200px"
         android:layout_marginTop="10dp"
@@ -40,7 +40,7 @@
 
     <EditText
         android:id="@+id/addWordText"
-        android:hint="content"
+        android:hint="@string/word"
         android:layout_width="600px"
         android:layout_height="200px"
         android:layout_marginTop="200dp"

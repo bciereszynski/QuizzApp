@@ -10,33 +10,32 @@
         android:id="@+id/editSubmit"
         android:layout_width="600px"
         android:layout_height="200px"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editWordText" />
-
-    <EditText
-        android:id="@+id/editWordText"
-        android:layout_width="600px"
-        android:layout_height="200px"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
+        android:text="@string/submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTranslationText" />
-
-
 
     <EditText
         android:id="@+id/editTranslationText"
         android:layout_width="600px"
         android:layout_height="200px"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/translation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editWordText" />
+
+
+
+    <EditText
+        android:id="@+id/editWordText"
+        android:layout_width="600px"
+        android:layout_height="200px"
         android:layout_marginTop="200dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text="@string/word"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

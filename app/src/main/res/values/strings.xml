@@ -14,6 +14,10 @@
 
     <string name="submit">Potwierdź</string>
     <string name="next_question">Dalej</string>
+    <string name="add">Dodaj</string>
+
+    <string name="word">Słowo</string>
+    <string name="translation">Tłumaczenie</string>
 
     <string name="difficultyEasy">Łatwy</string>
     <string name="difficultyMedium">Średni</string>

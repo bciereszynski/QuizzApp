@@ -59,23 +59,21 @@
 
     <CheckBox
         android:id="@+id/checkBoxAutoDifficulty"
-        android:layout_width="300px"
-        android:layout_height="200px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:text="@string/autoIncrementDifficulty"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.215"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerSettingsMode" />
 
     <CheckBox
         android:id="@+id/checkBoxLog"
-        android:layout_width="300px"
-        android:layout_height="200px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:text="@string/enableLogger"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.808"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerSettingsMode" />
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxAutoDifficulty" />
 </androidx.constraintlayout.widget.ConstraintLayout>
