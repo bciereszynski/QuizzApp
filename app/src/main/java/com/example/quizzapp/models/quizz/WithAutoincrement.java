@@ -14,8 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class WithAutoincrement implements IQuizz {
-    private final IQuizz base;
+public class WithAutoincrement extends QuizzDecorator {
     private int questionCount = 0;
     private int nextDifficultyId;
     private static final int INCREMENT_CAP = 2;
@@ -23,52 +22,20 @@ public class WithAutoincrement implements IQuizz {
 
 
     public WithAutoincrement(IQuizz base) {
-        this.base = base;
-        nextDifficultyId = difficulties.indexOf(this.base.getDifficulty())+1;
+        super(base);
+        nextDifficultyId = difficulties.indexOf(super.getDifficulty())+1;
     }
 
+    @Override
     public String generateNewQuestion() {
         questionCount++;
         if (questionCount % (INCREMENT_CAP + 1) == 0 && nextDifficultyId < difficulties.size()) {
             Difficulty newDifficulty = difficulties.get(nextDifficultyId);
-            base.setDifficulty(newDifficulty);
+            super.setDifficulty(newDifficulty);
             nextDifficultyId = nextDifficultyId + 1;
             questionCount = 0;
         }
-        return base.generateNewQuestion();
+        return super.generateNewQuestion();
     }
 
-    public Difficulty getDifficulty() {
-        return this.base.getDifficulty();
-    }
-
-
-    public void setWordsLists() {
-        base.setWordsLists();
-    }
-
-    public void setDifficulty(Difficulty difficulty) {
-        base.setDifficulty(difficulty);
-    }
-
-    public void setMode(Mode mode) {
-        base.setMode(mode);
-    }
-
-    public void setOwner(Observer owner) {
-        base.setOwner(owner);
-    }
-
-    public void start() {
-        base.start();
-    }
-
-
-    public boolean isContinuePossible() {
-        return base.isContinuePossible();
-    }
-
-    public Question getCurrentQuestion() {
-        return base.getCurrentQuestion();
-    }
 }
