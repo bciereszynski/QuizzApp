@@ -31,9 +31,12 @@ public class CrudActivity extends AppCompatActivity {
     private Word editPolishWord;
     private Word editEnglishWord;
 
-    public static final int NEW_BOOK_ACTIVITY_REQUEST_CODE = 1;
+    public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
+    public static final int EDIT_POLISH_ACTIVITY_REQUEST_CODE = 2;
+    public static final int EDIT_ENGLISH_ACTIVITY_REQUEST_CODE = 3;
     public static final String EXTRA_WORD = "pb.edu.pl.EXTRA_WORD";
     public static final String EXTRA_TRANSLATION = "pb.edu.pl.EXTRA_TRANSLATION";
+    public static final String EXTRA_REQUEST_CODE = "pb.edu.pl.REQUEST_CODE";
 
 
     PolishWordViewModel polishWordViewModel;
@@ -46,19 +49,19 @@ public class CrudActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode==2){
+        if (resultCode == 2) {
             String wordOut = data.getStringExtra(CrudActivity.EXTRA_WORD);
             String translationOut = data.getStringExtra(CrudActivity.EXTRA_TRANSLATION);
-            PolishWord polishWordToAdd = new PolishWord(wordOut,translationOut);
+            PolishWord polishWordToAdd = new PolishWord(wordOut, translationOut);
             polishWordViewModel.insert(polishWordToAdd);
         }
-        if(resultCode==3){
+        if (resultCode == 3) {
             String wordOut = data.getStringExtra(CrudActivity.EXTRA_WORD);
             String translationOut = data.getStringExtra(CrudActivity.EXTRA_TRANSLATION);
-            EnglishWord englishWordToAdd = new EnglishWord(wordOut,translationOut);
+            EnglishWord englishWordToAdd = new EnglishWord(wordOut, translationOut);
             englishWordViewModel.insert(englishWordToAdd);
         }
-        if(resultCode==4){
+        if (resultCode == 4) {
             String wordOut = data.getStringExtra(CrudActivity.EXTRA_WORD);
             String translationOut = data.getStringExtra(CrudActivity.EXTRA_TRANSLATION);
             editPolishWord.setContent(wordOut);
@@ -66,7 +69,7 @@ public class CrudActivity extends AppCompatActivity {
             polishWordViewModel.update((PolishWord) editPolishWord);
             editPolishWord = null;
         }
-        if(resultCode==5){
+        if (resultCode == 5) {
             String wordOut = data.getStringExtra(CrudActivity.EXTRA_WORD);
             String translationOut = data.getStringExtra(CrudActivity.EXTRA_TRANSLATION);
             editEnglishWord.setContent(wordOut);
@@ -86,163 +89,166 @@ public class CrudActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_crud);
         addButton = findViewById(R.id.addButton);
-        addButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CrudActivity.this,AddWordActivity.class);
-                startActivityForResult(intent,NEW_BOOK_ACTIVITY_REQUEST_CODE);
-            }
+        addButton.setOnClickListener(v -> {
+            Intent intent = new Intent(CrudActivity.this, AddWordActivity.class);
+            startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
+
         });
 
         recycleViewPl = findViewById(R.id.recyclerViewPl);
         final AdapterPl adapterPl = new AdapterPl(this.getApplicationContext());
         recycleViewPl.setAdapter(adapterPl);
         recycleViewPl.setLayoutManager(new LinearLayoutManager(this));
-        polishWordViewModel.findAll().observe(this,adapterPl::setPolishWordList);
+        polishWordViewModel.findAll().observe(this, adapterPl::setPolishWordList);
 
         recycleViewEn = findViewById(R.id.recyclerViewEn);
         final AdapterEn adapterEn = new AdapterEn(this.getApplicationContext());
         recycleViewEn.setAdapter(adapterEn);
         recycleViewEn.setLayoutManager(new LinearLayoutManager(this));
-        englishWordViewModel.findAll().observe(this,adapterEn::setEnglishWordList);
+        englishWordViewModel.findAll().observe(this, adapterEn::setEnglishWordList);
     }
+
     public class AdapterPl extends RecyclerView.Adapter<AdapterPl.CrudViewHolder> {
 
         private List<PolishWord> polishWordList;
         Context context;
-        public AdapterPl(Context ct){
+
+        public AdapterPl(Context ct) {
             this.context = ct;
         }
+
         @NonNull
         @Override
         public CrudViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new CrudViewHolder(getLayoutInflater(),parent);
+            return new CrudViewHolder(getLayoutInflater(), parent);
         }
 
         @Override
         public void onBindViewHolder(@NonNull CrudViewHolder holder, int position) {
-            if(polishWordList!=null){
+            if (polishWordList != null) {
                 PolishWord polishWord = polishWordList.get(position);
                 holder.bind(polishWord);
-            }
-            else Toast.makeText(context,"Nie ma co wyswietlic",Toast.LENGTH_SHORT).show();
+            } else Toast.makeText(context, "Nie ma co wyswietlic", Toast.LENGTH_SHORT).show();
         }
 
         @Override
         public int getItemCount() {
-            if(polishWordList!=null){
+            if (polishWordList != null) {
                 return polishWordList.size();
-            }
-            else {
+            } else {
                 return 0;
             }
         }
 
         private class CrudViewHolder extends RecyclerView.ViewHolder {
-            private TextView wordContent, wordTranslation;
-            private Button deleteButton,editButton;
+            private final TextView wordContent;
+            private final TextView wordTranslation;
+            private final Button deleteButton;
+            private final Button editButton;
+
             public CrudViewHolder(LayoutInflater layoutInflater, ViewGroup parent) {
-                super(layoutInflater.inflate(R.layout.word_list_item,parent,false));
+                super(layoutInflater.inflate(R.layout.word_list_item, parent, false));
                 wordContent = itemView.findViewById(R.id.word);
                 wordTranslation = itemView.findViewById(R.id.translation);
                 deleteButton = itemView.findViewById(R.id.deleteButton);
                 editButton = itemView.findViewById(R.id.editButton);
             }
-            public void bind(PolishWord polishWord){
+
+            public void bind(PolishWord polishWord) {
                 wordContent.setText(polishWord.getContent());
                 wordTranslation.setText(polishWord.getTranslation());
-                deleteButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        polishWordViewModel.delete(polishWord);
+                deleteButton.setOnClickListener(v -> polishWordViewModel.delete(polishWord));
+                editButton.setOnClickListener(v -> {
 
-                    }
-                });
-                editButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        editPolishWord = polishWord;
-                        Intent intent = new Intent(CrudActivity.this, EditWordActivity.class);
-                        intent.putExtra(EXTRA_WORD,polishWord.getContent());
-                        intent.putExtra(EXTRA_TRANSLATION,polishWord.getTranslation());
-                        startActivityForResult(intent,NEW_BOOK_ACTIVITY_REQUEST_CODE);
+                    editPolishWord = polishWord;
+                    Intent intent = new Intent(CrudActivity.this, EditWordActivity.class);
+                    intent.putExtra(EXTRA_WORD, polishWord.getContent());
+                    intent.putExtra(EXTRA_TRANSLATION, polishWord.getTranslation());
+                    intent.putExtra(EXTRA_REQUEST_CODE, EDIT_POLISH_ACTIVITY_REQUEST_CODE);
+                    startActivityForResult(intent, EDIT_POLISH_ACTIVITY_REQUEST_CODE);
 
-                    }
+
                 });
             }
         }
-        void setPolishWordList(List<PolishWord> polishWordList){
+
+        void setPolishWordList(List<PolishWord> polishWordList) {
             this.polishWordList = polishWordList;
             notifyDataSetChanged();
         }
 
     }
+
     public class AdapterEn extends RecyclerView.Adapter<AdapterEn.CrudViewHolder> {
 
         private List<EnglishWord> englishWordList;
         Context context;
-        public AdapterEn(Context ct){
+
+        public AdapterEn(Context ct) {
             this.context = ct;
         }
+
         @NonNull
         @Override
         public CrudViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new CrudViewHolder(getLayoutInflater(),parent);
+            return new CrudViewHolder(getLayoutInflater(), parent);
         }
 
         @Override
         public void onBindViewHolder(@NonNull CrudViewHolder holder, int position) {
-            if(englishWordList!=null){
+            if (englishWordList != null) {
                 EnglishWord englishWord = englishWordList.get(position);
                 holder.bind(englishWord);
-            }
-            else Toast.makeText(context,"Nie ma co wyswietlic",Toast.LENGTH_SHORT).show();
+            } else Toast.makeText(context, "Nie ma co wyswietlic", Toast.LENGTH_SHORT).show();
         }
 
         @Override
         public int getItemCount() {
-            if(englishWordList!=null){
+            if (englishWordList != null) {
                 return englishWordList.size();
-            }
-            else {
+            } else {
                 return 0;
             }
         }
 
         private class CrudViewHolder extends RecyclerView.ViewHolder {
-            private TextView wordContext, wordTranslation;
-            private Button deleteButton,editButton;
+            private final TextView wordContext;
+            private final TextView wordTranslation;
+            private final Button deleteButton;
+            private final Button editButton;
+
             public CrudViewHolder(LayoutInflater layoutInflater, ViewGroup parent) {
-                super(layoutInflater.inflate(R.layout.word_list_item,parent,false));
+                super(layoutInflater.inflate(R.layout.word_list_item, parent, false));
                 wordContext = itemView.findViewById(R.id.word);
                 wordTranslation = itemView.findViewById(R.id.translation);
                 deleteButton = itemView.findViewById(R.id.deleteButton);
                 editButton = itemView.findViewById(R.id.editButton);
             }
-            public void bind(EnglishWord englishWord){
+
+            public void bind(EnglishWord englishWord) {
                 wordContext.setText(englishWord.getContent());
                 wordTranslation.setText(englishWord.getTranslation());
-                deleteButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        englishWordViewModel.delete(englishWord);
-                    }
-                });
-                editButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        editEnglishWord = englishWord;
-                        Intent intent = new Intent(CrudActivity.this, EditWordActivity.class);
-                        intent.putExtra(EXTRA_WORD,englishWord.getContent());
-                        intent.putExtra(EXTRA_TRANSLATION,englishWord.getTranslation());
-                        startActivityForResult(intent,2);
-                    }
+                deleteButton.setOnClickListener(v ->
+
+                        englishWordViewModel.delete(englishWord)
+
+                );
+                editButton.setOnClickListener(v -> {
+
+                    editEnglishWord = englishWord;
+                    Intent intent = new Intent(CrudActivity.this, EditWordActivity.class);
+                    intent.putExtra(EXTRA_WORD, englishWord.getContent());
+                    intent.putExtra(EXTRA_TRANSLATION, englishWord.getTranslation());
+                    intent.putExtra(EXTRA_REQUEST_CODE, EDIT_ENGLISH_ACTIVITY_REQUEST_CODE);
+                    startActivityForResult(intent, EDIT_ENGLISH_ACTIVITY_REQUEST_CODE);
+
                 });
 
 
             }
         }
-        void setEnglishWordList(List<EnglishWord> englishWord){
+
+        void setEnglishWordList(List<EnglishWord> englishWord) {
             this.englishWordList = englishWord;
             notifyDataSetChanged();
         }

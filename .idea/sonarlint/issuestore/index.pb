@@ -1,8 +1,4 @@
 
-l
-<app/src/main/java/com/example/quizzapp/EditWordActivity.java,d\8\d892b5821699bc7e38c79c6b9425046878ee7531
-h
-8app/src/main/java/com/example/quizzapp/CrudActivity.java,e\6\e64219c2187d87728f8db689ec284b2db3518a5e
 o
 ?app/src/main/java/com/example/quizzapp/database/EnglishDao.java,a\8\a8b2cb52854d9bccdb66aaf18ed3f1f436e5b51b
 p

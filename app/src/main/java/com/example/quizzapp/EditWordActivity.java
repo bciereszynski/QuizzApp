@@ -14,25 +14,22 @@ import com.example.quizzapp.database.PolishWordViewModel;
 
 public class EditWordActivity extends AppCompatActivity {
 
-    public int requestCode;
     public static final String EXTRA_WORD = "pb.edu.pl.EXTRA_WORD";
     public static final String EXTRA_TRANSLATION = "pb.edu.pl.EXTRA_TRANSLATION";
-    public PolishWordViewModel polishWordViewModel;
-    public EnglishWordViewModel englishWordViewModel;
-    private EditText editWordText,editTranslationText;
+    private EditText editWordText;
+    private EditText editTranslationText;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        int requestCode;
         setContentView(R.layout.activity_edit_word);
-
-        polishWordViewModel = new ViewModelProvider(this).get(PolishWordViewModel.class);
-        englishWordViewModel = new ViewModelProvider(this).get(EnglishWordViewModel.class);
 
         Intent intent = getIntent();
         String wordIn = intent.getStringExtra(CrudActivity.EXTRA_WORD);
         String translationIn = intent.getStringExtra(CrudActivity.EXTRA_TRANSLATION);
+        requestCode = intent.getIntExtra(CrudActivity.EXTRA_REQUEST_CODE, 0);
 
 
         editWordText = findViewById(R.id.editWordText);
@@ -42,26 +39,24 @@ public class EditWordActivity extends AppCompatActivity {
         editTranslationText.setText(translationIn);
 
 
-
         Button button = findViewById(R.id.editSubmit);
         button.setOnClickListener(view -> {
             Intent replayIntent = new Intent();
-            if(TextUtils.isEmpty(editWordText.getText())
-            || TextUtils.isEmpty(editTranslationText.getText())){
-                setResult(RESULT_CANCELED,replayIntent);
+            if (TextUtils.isEmpty(editWordText.getText())
+                    || TextUtils.isEmpty(editTranslationText.getText())) {
+                setResult(RESULT_CANCELED, replayIntent);
 
-            }else{
+            } else {
                 String word = editWordText.getText().toString();
-                String traslation = editTranslationText.getText().toString();
-                replayIntent.putExtra(EXTRA_WORD,word);
-                replayIntent.putExtra(EXTRA_TRANSLATION,traslation);
+                String translation = editTranslationText.getText().toString();
+                replayIntent.putExtra(EXTRA_WORD, word);
+                replayIntent.putExtra(EXTRA_TRANSLATION, translation);
 
             }
             intent.putExtra("requestCode", requestCode);
-            if(this.requestCode==1)setResult(4,replayIntent);
-            if(this.requestCode==2)setResult(5,replayIntent);
+            if (requestCode == 2) setResult(4, replayIntent);
+            if (requestCode == 3) setResult(5, replayIntent);
             finish();
-
 
 
         });
