@@ -1,6 +1,4 @@
 
-o
-?app/src/main/java/com/example/quizzapp/database/EnglishDao.java,a\8\a8b2cb52854d9bccdb66aaf18ed3f1f436e5b51b
 p
 @app/src/main/java/com/example/quizzapp/database/EnglishWord.java,7\8\7862dc71dd0f5a3caefbc760a1dc3119b4a6f2e4
 v
@@ -19,7 +17,3 @@ i
 9app/src/main/java/com/example/quizzapp/database/Word.java,7\2\7205e4537030cf32f0b2ae3fa29b4468f4c3a3bf
 r
 Bapp/src/main/java/com/example/quizzapp/database/WordsDatabase.java,e\e\eeff46d9d748a7c0b1773fdfdba34092ab12ba1e
-h
-8app/src/main/java/com/example/quizzapp/MainActivity.java,1\6\167019c66fdac15ae4950332af4830dc214325a8
-i
-9app/src/main/java/com/example/quizzapp/QuizzActivity.java,e\0\e08a9416161be2b37242a561be01371cce09d87c

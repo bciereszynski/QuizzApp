@@ -35,9 +35,7 @@ public class Medium implements Difficulty{
         answers.add(position, correctAnswer.getTranslation());
         return answers;
     }
-    public Medium(){
 
-    }
     @Override
     public String toString(){
         return App.getResource().getString(R.string.difficultyMedium);

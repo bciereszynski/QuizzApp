@@ -13,8 +13,10 @@ import android.widget.CheckBox;
 import android.widget.Spinner;
 
 import com.example.quizzapp.models.difficulty.Difficulty;
+import com.example.quizzapp.models.difficulty.Easy;
 import com.example.quizzapp.models.difficulty.Hard;
 import com.example.quizzapp.models.difficulty.Medium;
+import com.example.quizzapp.models.difficulty.VeryEasy;
 import com.example.quizzapp.models.quizz.IQuizz;
 import com.example.quizzapp.models.quizz.Logger;
 import com.example.quizzapp.models.quizz.WithAutoincrement;
@@ -30,9 +32,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class FragmentSettings extends Fragment {
-    private final List<Difficulty> difficulties = new ArrayList<>(Arrays.asList(new Medium(), new Hard()));
+    private final List<Difficulty> difficulties = new ArrayList<>(Arrays.asList(new VeryEasy(), new Easy(),new Medium(), new Hard()));
     private final List<Quizz> quizzes = new ArrayList<>(Arrays.asList(new PL_EN_Quizz(), new EN_PL_Quizz()));
-    private final List<Mode> modes = new ArrayList<>(Arrays.asList(new Test(), new Learn()));
+    private final List<Mode> modes = new ArrayList<>(Arrays.asList(new Learn(), new Test()));
     private Spinner spinnerDifficulty;
     private Spinner spinnerLang;
     private Spinner spinnerMode;

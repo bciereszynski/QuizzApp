@@ -3,8 +3,10 @@ package com.example.quizzapp.models.quizz;
 import com.example.quizzapp.models.Observer;
 import com.example.quizzapp.models.Question;
 import com.example.quizzapp.models.difficulty.Difficulty;
+import com.example.quizzapp.models.difficulty.Easy;
 import com.example.quizzapp.models.difficulty.Hard;
 import com.example.quizzapp.models.difficulty.Medium;
+import com.example.quizzapp.models.difficulty.VeryEasy;
 import com.example.quizzapp.models.quizz.mode.Mode;
 
 import java.util.ArrayList;
@@ -17,7 +19,7 @@ public class WithAutoincrement implements IQuizz {
     private int questionCount = 0;
     private int nextDifficultyId;
     private static final int INCREMENT_CAP = 2;
-    private final List<Difficulty> difficulties = new ArrayList<>(Arrays.asList(new Medium(), new Hard()));
+    private final List<Difficulty> difficulties = new ArrayList<>(Arrays.asList(new VeryEasy(), new Easy(), new Medium(), new Hard()));
 
 
     public WithAutoincrement(IQuizz base) {

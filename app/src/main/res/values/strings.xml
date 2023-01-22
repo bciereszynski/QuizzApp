@@ -19,6 +19,7 @@
     <string name="word">Słowo</string>
     <string name="translation">Tłumaczenie</string>
 
+    <string name="difficultyVeryEasy">Bardzo Łatwy</string>
     <string name="difficultyEasy">Łatwy</string>
     <string name="difficultyMedium">Średni</string>
     <string name="difficultyHard">Trudny</string>

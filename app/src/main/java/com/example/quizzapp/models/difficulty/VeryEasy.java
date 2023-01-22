@@ -1,9 +1,5 @@
 package com.example.quizzapp.models.difficulty;
 
-
-
-import android.content.res.Resources;
-
 import androidx.annotation.Nullable;
 
 import com.example.quizzapp.App;
@@ -16,13 +12,13 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-public class Hard implements Difficulty{
+public class VeryEasy implements Difficulty{
     public List<String> generateAnswers(List<Word> words, Word correctAnswer){
         List<String> answers = new LinkedList<>();
         Random r = new Random();
         Set<Integer> indexSet = new LinkedHashSet<>();
         int position;
-        while(indexSet.size() < 4) {
+        while(indexSet.size() < 1) {
             position = r.nextInt(words.size());
             if(words.get(position).getContent() == correctAnswer.getTranslation())
                 continue;
@@ -31,14 +27,13 @@ public class Hard implements Difficulty{
         for (int i:indexSet) {
             answers.add(words.get(i).getContent());
         }
-        position=r.nextInt(5);
+        position=r.nextInt(2);
         answers.add(position, correctAnswer.getTranslation());
         return answers;
     }
-
     @Override
     public String toString(){
-        return App.getResource().getString(R.string.difficultyHard);
+        return App.getResource().getString(R.string.difficultyVeryEasy);
     }
 
     @Override
