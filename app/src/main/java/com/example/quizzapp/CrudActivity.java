@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,6 +21,7 @@ import com.example.quizzapp.database.PolishWord;
 import com.example.quizzapp.database.PolishWordViewModel;
 import com.example.quizzapp.database.Word;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -27,6 +29,7 @@ public class CrudActivity extends AppCompatActivity {
 
     private Word editPolishWord;
     private Word editEnglishWord;
+    View view;
 
     public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
     public static final int EDIT_POLISH_ACTIVITY_REQUEST_CODE = 2;
@@ -51,12 +54,16 @@ public class CrudActivity extends AppCompatActivity {
             String translationOut = data.getStringExtra(CrudActivity.EXTRA_TRANSLATION);
             PolishWord polishWordToAdd = new PolishWord(wordOut, translationOut);
             polishWordViewModel.insert(polishWordToAdd);
+            Snackbar popUp = Snackbar.make(view, "Pomyślnie dodano!", Snackbar.LENGTH_LONG);
+            popUp.show();
         }
         if (resultCode == 3) {
             String wordOut = data.getStringExtra(CrudActivity.EXTRA_WORD);
             String translationOut = data.getStringExtra(CrudActivity.EXTRA_TRANSLATION);
             EnglishWord englishWordToAdd = new EnglishWord(wordOut, translationOut);
             englishWordViewModel.insert(englishWordToAdd);
+            Snackbar popUp = Snackbar.make(view, "Pomyślnie dodano!", Snackbar.LENGTH_LONG);
+            popUp.show();
         }
         if (resultCode == 4) {
             String wordOut = data.getStringExtra(CrudActivity.EXTRA_WORD);
@@ -65,6 +72,8 @@ public class CrudActivity extends AppCompatActivity {
             editPolishWord.setTranslation(translationOut);
             polishWordViewModel.update((PolishWord) editPolishWord);
             editPolishWord = null;
+            Snackbar popUp = Snackbar.make(view, "Pomyślnie edytowano!", Snackbar.LENGTH_LONG);
+            popUp.show();
         }
         if (resultCode == 5) {
             String wordOut = data.getStringExtra(CrudActivity.EXTRA_WORD);
@@ -73,6 +82,8 @@ public class CrudActivity extends AppCompatActivity {
             editEnglishWord.setTranslation(translationOut);
             englishWordViewModel.update((EnglishWord) editEnglishWord);
             editEnglishWord = null;
+            Snackbar popUp = Snackbar.make(view, "Pomyślnie edytowano!", Snackbar.LENGTH_LONG);
+            popUp.show();
         }
 
 
@@ -83,6 +94,7 @@ public class CrudActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         polishWordViewModel = new ViewModelProvider(this).get(PolishWordViewModel.class);
         englishWordViewModel = new ViewModelProvider(this).get(EnglishWordViewModel.class);
+         view = findViewById(R.id.crudLayout);
 
         setContentView(R.layout.activity_crud);
         addButton = findViewById(R.id.addButton);
